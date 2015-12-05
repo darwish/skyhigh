@@ -75,3 +75,25 @@
 		position: static;
 	}
 }
+
+@media (max-width: 450px) {
+	.result-item {
+		text-align: center;
+	}
+
+	.result-item .thumbnail {
+		float: none;
+		margin: 0 auto 20px;
+	}
+
+	.result-item .price {
+		float: none;
+		clear: both;
+		width: 100%;
+	}
+
+	.result-item .store-info {
+		margin-top: 20px;
+		position: static;
+	}
+}
