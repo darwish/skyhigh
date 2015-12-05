@@ -4,7 +4,7 @@ require __DIR__ . '/../includes/start.php';
 $user = R::dispense('user');
 
 $user->username = postvar("username");
-$user->password = postvar("password");
+$user->password = password_hash(postvar("password"), PASSWORD_BCRYPT);
 
 R::store($user);
 
