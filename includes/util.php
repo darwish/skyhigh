@@ -86,3 +86,51 @@ function postvar($name, $default = null) {
 function getvar($name, $default = null) {
 	return isset($_GET[$name]) ? $_GET[$name] : $default;
 }
+
+function partial($name, array $__args = []) {
+	extract($__args);
+	require __DIR__ . "/templates/partials/$name.php";
+}
+
+function search($query, $page = 1) {
+	// Fake results for now
+	$results = [
+		[
+			'id' => rand(1, 1000),
+			'thumbnail' => "//placebear.com/200/200",
+			'title' => "Nice Black Boots",
+			'description' => "Pretty decent stuff, you know?",
+			'store' => "Canadian Tire",
+			'distance' => "0.2mi",
+			'discountPrice' => 49.9899,
+			'originalPrice' => 99.99,
+		],
+		[
+			'id' => rand(1, 1000),
+			'thumbnail' => "//placebear.com/200/200",
+			'title' => "Nice Brown Boots",
+			'description' => "Not great, to be honest.",
+			'store' => "Walmart",
+			'distance' => "0.3mi",
+			'discountPrice' => 29,
+			'originalPrice' => 39.95,
+		],
+	];
+
+	$pageSize = 10;
+	$pageStart = ($page - 1) * $pageSize + 1;
+	$pageEnd = $pageStart + $pageSize - 1;
+	if ($pageEnd > count($results)) {
+		$pageEnd = count($results);
+	}
+
+	return [
+		'query' => $query,
+		'results' => $results,
+		'count' => count($results),
+		'page' => $page,
+		'pageSize' => $pageSize,
+		'start' => $pageStart,
+		'end' => $pageEnd,
+	];
+}

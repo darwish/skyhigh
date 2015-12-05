@@ -1,22 +1,65 @@
+.search-results-meta {
+	margin-bottom: 10px;
+	margin-left: 20px;
+	font-size: 1.1em;
+}
 
+.result-item {
+	display: block;
+	padding: 20px;
+	border-radius: 10px;
+	margin-bottom: 30px;
+	position: relative;
+	background: #eee;
+}
 
-/* ==========================================================================
-   Author's custom styles
-   ========================================================================== */
+.result-item:hover {
+	background: #ddd;
+}
 
+/* Override default link styles */
+.result-item, .result-item:hover, .result-item:focus, .result-item:active {
+	color: #333;
+	text-decoration: none;
+}
 
+.result-item .thumbnail {
+	float: left;
+	width: 200px;
+	height: 200px;
+	margin-right: 10px;
+	margin-bottom: 0;
+}
 
+.result-item .title {
+	font-size: 2em;
+	font-weight: bold;
+}
 
+.result-item .store-info {
+	position: absolute;
+	bottom: 20px;
+	left: 230px;
+	font-size: 0.8em;
+}
 
+.result-item .price {
+	float: right;
+	width: 150px;
+}
 
+.result-item .discount-price {
+	font-size: 3em;
+}
 
-
-
-
-
-
-
-
-
-
-
+.result-item .discount-percentage {
+	width: 120px;
+	height: 100px;
+	line-height: 100px;
+	margin: 10px auto 0;
+	text-align: center;
+	font-size: 40px;
+	border-radius: 20px;
+	background: #F57D14;
+	color: #fff;
+}

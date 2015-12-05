@@ -78,3 +78,27 @@ $(document).on('form-success', '[data-form="signin"]', function(e, response) {
 $(document).on('form-success', '[data-form="register"]', function(e, response) {
 	location = "index.php";
 });
+
+function formatMoney(number) {
+	var decimals = 2;
+	var decimalSeparator = '.';
+	var thousandsSeparator = ',';
+	var signIndicator = '-';
+	var dollarSign = '$';
+
+	var signLeft = number < 0 ? (signIndicator === 'brackets' ? '(' : '-') : '',
+		signRight = number < 0 && signIndicator === 'brackets' ? ')' : '',
+		leftSide = signIndicator === 'brackets' ? signLeft + dollarSign : dollarSign + signLeft, // Show ($100) but -$100
+		i = parseInt(number = Math.abs(+number || 0).toFixed(decimals)) + '',
+		j = (j = i.length) > 3 ? j % 3 : 0;
+
+	return leftSide + (j ? i.substr(0, j) + thousandsSeparator : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + thousandsSeparator) + (decimals ? decimalSeparator + Math.abs(number - i).toFixed(decimals).slice(2) : "") + signRight;
+}
+
+Handlebars.registerHelper('formatMoney', function(number) {
+	return formatMoney(number);
+});
+
+function calculateDiscount(discountPrice, originalPrice) {
+	return Math.round(100 * (discountPrice - originalPrice) / originalPrice);
+}

@@ -23,6 +23,10 @@
 		<link rel="stylesheet" href="css/jquery.growl.css">
 
 		<script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+		<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.3/handlebars.js"></script>
 	</head>
 	<body>
 		<!--[if lt IE 8]>
@@ -37,7 +41,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#">Door Crashers</a>
+				<a class="navbar-brand" href="index.php">Door Crashers</a>
 			</div>
 			<div id="navbar" class="navbar-collapse collapse">
 				<?php if (me()): ?>
