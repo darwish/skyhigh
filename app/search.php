@@ -2,18 +2,35 @@
 require __DIR__ . '/../includes/start.php';
 
 $q = getvar("q");
-if (!trim($q)) {
+$category_id = (int)getvar("cat");
+if (!trim($q) && !$category_id) {
 	redirect("index.php");
+}
+
+$category = null;
+if ($category_id) {
+	$category = R::load("category", $category_id);
 }
 
 $page = (int)getvar("page", 1);
 
-$search = search($q, $page);
+$search = search($q, $category_id, $page);
+
 $pageTitle = "Search Results";
 ?>
 <?php require __DIR__ . '/../includes/templates/header.php'; ?>
 
 <h1>Search Results</h1>
+
+<?php if ($category): ?>
+<ol class="breadcrumb">
+	<?php if ($category->category): ?>
+	<li><a href="search.php?cat=<?= $category->category->id ?>"><?= h($category->category->name); ?></a></li>
+	<?php endif; ?>
+
+	<li><a href="search.php?cat=<?= $category->id ?>"><?= h($category->name); ?></a></li>
+</ol>
+<?php endif; ?>
 
 <?php partial("search-bar", ['q' => $q]); ?>
 
