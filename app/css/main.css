@@ -52,6 +52,18 @@
 .result-item .title {
 	font-size: 2em;
 	font-weight: bold;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+.result-item .description {
+	max-height: 140px;
+	overflow: hidden;
+}
+
+.result-item .details {
+	margin-right: 170px;
 }
 
 .result-item .store-info {
@@ -68,18 +80,6 @@
 
 .result-item .discount-price {
 	font-size: 3em;
-}
-
-.result-item .discount-percentage-badge {
-	width: 120px;
-	height: 100px;
-	line-height: 100px;
-	margin: 10px auto 0;
-	text-align: center;
-	font-size: 40px;
-	border-radius: 20px;
-	background: #F57D14;
-	color: #fff;
 }
 
 @media (max-width: 767px) {
@@ -146,6 +146,16 @@
 .purchase-item .title {
 	font-size: 2em;
 	font-weight: bold;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+.purchase-item .description {
+}
+
+.purchase-item .details {
+	margin-right: 270px;
 }
 
 .purchase-item .store-info {
@@ -163,18 +173,6 @@
 
 .purchase-item .discount-price {
 	font-size: 3em;
-}
-
-.purchase-item .discount-percentage-badge {
-	width: 120px;
-	height: 100px;
-	line-height: 100px;
-	margin-top: 10px;
-	text-align: center;
-	font-size: 40px;
-	border-radius: 20px;
-	background: #F57D14;
-	color: #fff;
 }
 
 .purchase-item .pay-buttons {
@@ -202,6 +200,36 @@
 		margin-top: 20px;
 	}
 }
+
+/* =============== COMMON =============== */
+.discount-percentage-badge {
+	width: 120px;
+	height: 100px;
+	line-height: 100px;
+	margin: 10px auto 0;
+	text-align: center;
+	border-radius: 20px;
+	background: #F57D14;
+	color: #fff;
+}
+
+.discount-percentage-badge-wrapper {
+	vertical-align: middle;
+	display: inline-block;
+}
+
+.discount-percentage-badge-number {
+	font-size: 40px;
+	line-height: 1;
+}
+
+.discount-percentage-badge-off {
+	line-height: 1;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+
 
 /* trying to make things glossy */
 .jumbotron {
