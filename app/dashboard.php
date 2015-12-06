@@ -18,15 +18,16 @@ Dropzone.options.deadend = {
 };
 </script>
 
-<div class="bs-example">
+<div class="dashboard-container">
     <ul class="nav nav-tabs">
         <li class="active"><a data-toggle="tab" href="#inventory">Inventory</a></li>
+        <li><a data-toggle="tab" href="#coupon-settings">Coupon Settings</a></li>
         <li><a data-toggle="tab" href="#analytics">Analytics</a></li>
         <li><a data-toggle="tab" href="#store-details">Store Details</a></li>
     </ul>
     <div class="tab-content row">
         <div id="inventory" class="tab-pane fade in active">
-            <table class="table table-condensed">
+            <table class="table table-condensed inventory-table">
                 <thead>
                     <tr>
                         <th>Title</th>
@@ -40,7 +41,19 @@ Dropzone.options.deadend = {
                 </tbody>
             </table>
             <!-- this is a Dropzone.js magic widget -->
+            <h1>Import Inventory</h1>
             <form id="deadend" action="/upload-deadend.php" class="dropzone"></form>
+        </div>
+        <div id="coupon-settings" class="tab-pane fade">
+            <form action="#" class="row">
+                <div class="col-md-4">
+                    <h1>Coupon Defaults</h1>
+                    <div class="form-group"><label for="default-duration">How long before a coupon expires?</label><input class="form-control" type="text" value="1 day" id="default-duration"></div>
+                    <div class="form-group"><label for="coupons-per-visit">How many coupons can each customer use?</label><input class="form-control" type="text" value="1" id="coupons-per-visit"></div>
+                    <div class="form-group"><label for="coupon-frequency">How often can customers use coupons?</label><div>Every <input class="form-control" type="number" id="coupon-frequency" value="2"> days</div></div>
+                    <div class="checkbox"><label><input type="checkbox"> Cycle offers</label></div>
+                </div>
+            </form>
         </div>
         <div id="analytics" class="tab-pane fade">
             <h1>Gizmo Sale Campaign <i>August 2014</i></h1>
@@ -51,11 +64,11 @@ Dropzone.options.deadend = {
             <div class="col-md-4">
                 <div class="form-group">
                     <label for="address1">Street Address</label>
-                    <input id="address1" class="form-control" type="text" placeholder="123 Main Street">
+                    <input id="address1" class="form-control" type="text" value="123 Main Street">
                 </div>
                 <div class="form-group">
                     <label for="zip">Zip Code</label>
-                    <input id="zip" class="form-control" type="text" placeholder="12345">
+                    <input id="zip" class="form-control" type="text" value="12345">
                 </div>
 
                 <button id="fetch-places" class="btn btn-primary" disabled>Save</button>
@@ -73,14 +86,20 @@ Dropzone.options.deadend = {
 <script type="text/plain" id="result-item-template">
     <tr>
         <td>{{title}}</td>
-        <td>{{formatMoney original_price}}</td>
-        <td width="100px"><input type="range" min="0" max="100" value={{discount_percentage}} /></td>
-        <td>{{formatMoney discount_price}}</td>
+        <td class="original-price">{{formatMoney original_price}}</td>
+        <td width="100px"><input class="form-control" type="number" value={{discount_percentage}} min="0" max="100" /></td>
+        <td class="discount-price">{{formatMoney discount_price}}</td>
     </tr>
 </script>
 
 <script>
 $(function() {
+    $('.inventory-table').on('input', 'input', function() {
+        var row = $(this).closest('tr');
+        var price = +row.find('.original-price').text().substr(1);
+        row.find('.discount-price').text(formatMoney(price * (1 - $(this).val() / 100)));
+    });
+    
     var resultItemTemplate = Handlebars.compile($('#result-item-template').html());
     var results = <?= json_encode(R::exportAll(search('',1)['results'])); ?>;
     results.forEach(function(result){
