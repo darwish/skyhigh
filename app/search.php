@@ -85,8 +85,13 @@ $(function() {
 		var item = $(resultItemTemplate(result));
 		$('.search-results').append(item);
 
+		// Use separate function call otherwise item inside the closure gets bound to the last thing.
+		doDistanceThing(result, item);
+	}
+
+	function doDistanceThing(result, item) {
 		calculateDistance(result.shop.latitude, result.shop.longitude, function(distance) {
-			item.find('.distance').text(niceRound(distance));
+			item.find('.distance').text(niceRound(distance).toLocaleString());
 		});
 	}
 });
