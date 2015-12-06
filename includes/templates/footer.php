@@ -31,6 +31,11 @@
 							<input type="password" class="form-control" name="password" id="password">
 						</div>
 
+						<div class="form-group">
+							<label for="confirm_password" class="control-label">Confirm Password</label>
+							<input type="password" class="form-control" name="confirm_password" id="confirm_password">
+						</div>
+
 						<button class="btn btn-primary">Register</button>
 					</form>
 				</div>
@@ -47,7 +52,7 @@
 				</div>
 				<div class="modal-body">
 					<div class="row">
-						<div class="col-sm-6">
+						<div class="col-sm-6" style="border-right: 1px solid #ccc;">
 							<h4>Sign In</h4>
 							<form method="post" action="signin.php" class="form" data-toggle="ajax" data-form="signin">
 								<input type="hidden" name="pay" value="1">
@@ -57,7 +62,10 @@
 								<div class="form-group">
 									<input type="password" name="password" placeholder="Password" class="form-control">
 								</div>
-								<button type="submit" class="btn btn-success">Sign in</button>
+								<div class="form-group">
+									<input class="form-control" style="visibility: hidden">
+								</div>
+								<button type="submit" class="btn btn-success pull-right">Sign in</button>
 							</form>
 						</div>
 						<div class="col-sm-6">
@@ -70,7 +78,10 @@
 								<div class="form-group">
 									<input type="password" name="password" placeholder="Password" class="form-control">
 								</div>
-								<button type="submit" class="btn btn-primary">Register</button>
+								<div class="form-group">
+									<input type="password" name="confirm_password" placeholder="Confirm Password" class="form-control">
+								</div>
+								<button type="submit" class="btn btn-primary pull-right">Register</button>
 							</form>
 						</div>
 					</div>
