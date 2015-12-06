@@ -43,11 +43,14 @@
 		<link rel="stylesheet" href="css/main.css">
 		<link rel="stylesheet" href="css/jquery.growl.css">
 		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
-
+		<link rel="stylesheet" href="css/leaflet.awesome-markers.css">
+		<link href='https://api.tiles.mapbox.com/mapbox.js/v2.2.3/mapbox.css' rel='stylesheet' />
+		
 		<script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
 		<script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
 		<script src='https://api.tiles.mapbox.com/mapbox.js/v2.2.3/mapbox.js'></script>
-		<link href='https://api.tiles.mapbox.com/mapbox.js/v2.2.3/mapbox.css' rel='stylesheet' />
+		<script src="js/vendor/leaflet.awesome-markers.min.js"></script>
+		
 
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 		<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>

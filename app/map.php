@@ -20,21 +20,39 @@
 			dealPoints[i*10+j] = {};
 			dealPoints[i*10+j].lat = mapLat + (i+1)*0.001,
 			dealPoints[i*10+j].lon = mapLon + (j+1)*0.001;
-			dealPoints[i*10+j].bizName = 'joes';
-			dealPoints[i*10+j].item = 'shoes';
+			dealPoints[i*10+j].storeName = 'joes';
+			dealPoints[i*10+j].itemName = 'shoes';
 			dealPoints[i*10+j].percentOff = 50;
 			dealPoints[i*10+j].imgUrl = 'http://placebear.com/32/32';
+			dealPoints[i*10+j].id = 4523;
 		}
 	}
 	
 	for (i=0; i< dealPoints.length; i++){
-		//$( "div.log" ).html(deal.lat);
 		addItem(dealPoints[i]);
 	}
 
+	//var userLocation = L.marker([mapLat, mapLon]).addTo(map);
+	var userLocation = L.AwesomeMarkers.icon({
+		icon: 'home',
+		markerColor: 'red'
+	});
+
+  L.marker([mapLat,mapLon], {icon: userLocation}).addTo(map);
+	
+	
 	function addItem(item){
-		mark = L.marker([item.lat, item.lon]).addTo(map);
-		mark.bindPopup('<a href="item.php?q="><img src="' + item.imgUrl + '" /> &nbsp; ' + item.item + '</a>').openPopup();
+		var itemIcon = L.AwesomeMarkers.icon({
+			icon: 'shopping-cart',
+			markerColor: 'blue'
+		});
+		
+		var options = {};
+		options.title = item.percentOff + '% off ' + item.itemName;
+		options.icon = itemIcon;
+		
+		mark = L.marker([item.lat, item.lon], options).addTo(map);
+		mark.bindPopup('<a href="item.php?q=' + item.id + '"><img src="' + item.imgUrl + '" /> &nbsp; ' + item.itemName + '</a>').openPopup();
 	}
 	
 	</script>
