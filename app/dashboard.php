@@ -102,7 +102,7 @@ $(function() {
 
     var resultItemTemplate = Handlebars.compile($('#result-item-template').html());
     var results = <?= json_encode(R::exportAll(search('',1)['results'])); ?>;
-    if (location.toString().contains('upload')) {
+    if (location.toString().indexOf('upload') > -1) {
         results.forEach(function(result){
             result.discount_percentage = calculateDiscount(result.discount_price, result.original_price);
             var item = resultItemTemplate(result);
