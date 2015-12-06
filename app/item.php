@@ -40,7 +40,7 @@ $pageTitle = "Purchase Item";
 
 		<div class="pay-buttons">
 			<div class="thumbnail">
-				<img src="https://chart.googleapis.com/chart?cht=qr&chs=250x250&chl={{id}}:<?=me()->id?>">
+				<img src="https://chart.googleapis.com/chart?cht=qr&chs=250x250&chl={{id}}:<?=me() ? me()->id : 0?>">
 				<div class="caption">
 					<?php if ($purchase === null): ?>
 						<small>Show this QR code to the cashier to redeem your personalized coupon for {{positive_discount_percentage}}% off.</small>
