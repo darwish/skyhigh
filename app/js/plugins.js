@@ -103,6 +103,62 @@ function calculateDiscount(discountPrice, originalPrice) {
 	return Math.round(100 * (discountPrice - originalPrice) / originalPrice);
 }
 
+// From http://stackoverflow.com/a/27943/539097
+function getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2) {
+	var R = 6371; // Radius of the earth in km
+	var dLat = deg2rad(lat2-lat1);  // deg2rad below
+	var dLon = deg2rad(lon2-lon1);
+	var a =
+		Math.sin(dLat/2) * Math.sin(dLat/2) +
+		Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
+		Math.sin(dLon/2) * Math.sin(dLon/2)
+		;
+	var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+	var d = R * c; // Distance in km
+	return km2mi(d);
+}
+
+function deg2rad(deg) {
+	return deg * (Math.PI/180)
+}
+
+function km2mi(km) {
+	return km / 1.60934;
+}
+
+function getLocation(callback) {
+	navigator.geolocation.getCurrentPosition(function(position) {
+		window.user_position = position;
+		callback && callback();
+	});
+}
+
+function calculateDistance(lat, lon, callback) {
+	if (!window.user_position) {
+		getLocation(_calculateDistance);
+	} else {
+		_calculateDistance();
+	}
+
+	function _calculateDistance() {
+		var coords = window.user_position.coords;
+		var distance = getDistanceFromLatLonInKm(lat, lon, coords.latitude, coords.longitude);
+		callback(distance);
+	}
+}
+
+function niceRound(number) {
+	var decimals = 0;
+	if (number < 1) {
+		decimals = 2;
+	} else if (number < 10) {
+		decimals = 1;
+	}
+
+	var multiplier = Math.pow(10, decimals);
+	return Math.round(number * multiplier) / multiplier;
+}
+
 $(document).on('shown.bs.modal', function() {
 	$(this).find('[autofocus]').focus();
 });

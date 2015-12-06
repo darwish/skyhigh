@@ -66,7 +66,7 @@ $pageTitle = "Search Results";
 		<div class="title">{{title}}</div>
 		<div class="description">{{description}}</div>
 	</div>
-	<div class="store-info">{{shop.name}} - {{shop.distance}}</div>
+	<div class="store-info">{{shop.name}} - <span class="distance">?</span>mi</div>
 </a>
 </script>
 
@@ -79,8 +79,13 @@ $(function() {
 		var result = results[i];
 		result.discount_percentage = calculateDiscount(result.discount_price, result.original_price);
 
-		var item = resultItemTemplate(result);
+		// Make this an object instead of a string so that we can use it in the calculateDistance callback
+		var item = $(resultItemTemplate(result));
 		$('.search-results').append(item);
+
+		calculateDistance(result.shop.latitude, result.shop.longitude, function(distance) {
+			item.find('.distance').text(niceRound(distance));
+		});
 	}
 });
 </script>

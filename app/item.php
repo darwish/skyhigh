@@ -3,6 +3,7 @@ require __DIR__ . '/../includes/start.php';
 
 $item_id = getvar("id");
 $item = findItem($item_id);
+$item->shop; // Load that data for export
 
 $purchase = null;
 if (me()) {
@@ -82,21 +83,26 @@ $pageTitle = "Purchase Item";
 			</div>
 		</div>
 
-		<div class="store-info">{{shop.name}} - {{shop.distance}}</div>
+		<div class="store-info">{{shop.name}} - <span class="distance">?</span>mi</div>
 	</div>
 	</script>
 
 	<script>
 	$(function() {
 		var itemTemplate = Handlebars.compile($('#item-template').html());
-		var item = <?= json_encode($item->export()); ?>;
+		var data = <?= json_encode($item->export()); ?>;
 
-		item.discount_percentage = calculateDiscount(item.discount_price, item.original_price);
-		item.positive_discount_percentage = -calculateDiscount(item.discount_price, item.original_price);
-		item.discount_price_cents = Math.round(item.discount_price * 100);
+		data.discount_percentage = calculateDiscount(data.discount_price, data.original_price);
+		data.positive_discount_percentage = -calculateDiscount(data.discount_price, data.original_price);
+		data.discount_price_cents = Math.round(data.discount_price * 100);
 
-		var item = itemTemplate(item);
+		// Make this an object instead of a string so that we can use it in the calculateDistance callback
+		var item = $(itemTemplate(data));
 		$('.item-container').append(item);
+
+		calculateDistance(data.shop.latitude, data.shop.longitude, function(distance) {
+			item.find('.distance').text(niceRound(distance));
+		});
 
 		<?php if (!empty($_SESSION['pay'])): ?>
 			<?php unset($_SESSION['pay']); ?>
