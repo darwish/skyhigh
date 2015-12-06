@@ -90,6 +90,7 @@
 	.result-item .details {
 		clear: both;
 		padding-top: 20px;
+		margin-right: 0;
 	}
 
 	.result-item .store-info {
@@ -211,13 +212,36 @@
 		margin-top: 20px;
 		width: 200px;
 	}
+
+	.purchase-item .details {
+		margin-right: 0;
+	}
+
+	.purchase-item .map-panel-container {
+		margin-right: 0;
+		margin-top: 20px;
+		float: left;
+		width: 100%;
+	}
 }
 
 @media (max-width: 600px) {
+	.purchase-item .item-thumbnail,
+	.purchase-item .pay-buttons,
+	.purchase-item .price {
+		margin-left: auto;
+		margin-right: auto;
+		float: none;
+	}
+
+	.purchase-item .details,
+	.purchase-item .map-panel-container {
+		float: none;
+	}
+
 	.purchase-item .details {
-		clear: left;
-		float: left;
 		margin-top: 20px;
+		width: 100%;
 	}
 }
 
