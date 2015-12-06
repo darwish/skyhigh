@@ -162,18 +162,20 @@
 	color: #fff;
 }
 
-.purchase-item #pay-now {
+.purchase-item .pay-buttons {
 	float: right;
 	width: 250px;
+}
+.purchase-item #pay-now {
+	width: 100%;
 	height: 100px;
 	font-size: 30px !important;
 	border-radius: 10px !important;
+	margin: 0 !important;
 }
 
 .purchase-item .pay-or {
-	float: right;
-	clear: right;
-	width: 250px;
+	width: 100%;
 	text-align: center;
 	margin: 5px 0;
 	text-transform: uppercase;
@@ -183,18 +185,36 @@
 
 /* Copy the Simplify Commerce button styles so the two buttons look similar */
 .purchase-item .pay-later {
-	float: right;
-	clear: right;
-	width: 250px;
+	width: 100%;
 	height: 100px;
 	font-size: 30px;
 	border-radius: 10px;
 	color: #FFF;
 	background-color: #D41414;
 	padding: 9px 22px;
-	margin: 1px 6px;
 	cursor: pointer;
 	border: 1px solid #D41414;
 	font-family: arial,sans-serif;
 	letter-spacing: 0.3px;
+}
+
+@media (max-width: 767px) {
+	.purchase-item .pay-buttons {
+		float: left;
+		clear: left;
+		margin-top: 20px;
+		width: 200px;
+	}
+
+	.purchase-item .pay-later, .purchase-item #pay-now {
+		font-size: 24px !important;
+	}
+}
+
+@media (max-width: 600px) {
+	.purchase-item .details {
+		clear: left;
+		float: left;
+		margin-top: 20px;
+	}
 }

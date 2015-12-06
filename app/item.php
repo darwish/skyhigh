@@ -25,24 +25,28 @@ $pageTitle = "Purchase Item";
 	<script type="text/plain" id="item-template">
 	<div class="purchase-item clearfix">
 		<div class="thumbnail"><img src="{{thumbnail}}"></div>
-		<button id="pay-now"
-		        data-sc-key="sbpb_ZjVlZGMzMTctYTY4MS00MTA5LWJiM2MtYmMwZGE0ZTMzZGZi"
-		        data-name="{{title}}"
-		        data-description="{{description}}"
-		        data-reference="{{id}}"
-		        data-amount="{{discount_price_cents}}"
-		        data-redirect-url="<?= $redirectUrl ?>"
-		        data-masterpass="true"
-		        data-color="#12B830">
-			Pay Now
-		</button>
-		<div class="pay-or">or</div>
-		<button class="pay-later">Pay in Store</button>
+
+		<div class="pay-buttons">
+			<button id="pay-now"
+			        data-sc-key="sbpb_ZjVlZGMzMTctYTY4MS00MTA5LWJiM2MtYmMwZGE0ZTMzZGZi"
+			        data-name="{{title}}"
+			        data-description="{{description}}"
+			        data-reference="{{id}}"
+			        data-amount="{{discount_price_cents}}"
+			        data-redirect-url="<?= $redirectUrl ?>"
+			        data-masterpass="true"
+			        data-color="#12B830">
+				Pay Now
+			</button>
+			<div class="pay-or">or</div>
+			<button class="pay-later">Pay in Store</button>
+		</div>
 
 		<div class="details">
 			<div class="title">{{title}}</div>
 			<div class="description">{{description}}</div>
 		</div>
+
 		<div class="price">
 			<div class="prices">
 				<div class="discount-price">{{formatMoney discount_price}}</div>
@@ -52,6 +56,7 @@ $pageTitle = "Purchase Item";
 				<div class="discount-percentage-badge">{{discount_percentage}}%</div>
 			</div>
 		</div>
+
 		<div class="store-info">{{store}} - {{distance}}</div>
 	</div>
 	</script>
