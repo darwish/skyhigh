@@ -24,7 +24,7 @@ function initMap() {
 		});
 	}
 
-	var map = L.mapbox.map('map', 'mapbox.dark');
+	var map = window.map = L.mapbox.map('map', 'mapbox.dark');
 
 	for (var i = 0; i < dealPoints.length; i++) {
 		addItem(dealPoints[i]);
@@ -37,7 +37,7 @@ function initMap() {
 
 	markers.push(L.marker([mapLat,mapLon], {icon: userLocation}).addTo(map));
 
-	map.fitBounds(new L.featureGroup(markers), { padding: [10, 10] });
+	_fitMapBounds();
 
 	function addItem(item){
 		var link =
@@ -71,6 +71,14 @@ function initMap() {
 		mark.bindPopup(link);
 
 		markersByPosition[posString] = mark;
+	}
+
+	window.fitMapBounds = function() {
+		_fitMapBounds();
+	};
+
+	function _fitMapBounds() {
+		map.fitBounds(new L.featureGroup(markers), { padding: [20, 20] });
 	}
 }
 

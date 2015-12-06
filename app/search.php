@@ -35,18 +35,16 @@ $pageTitle = "Search Results";
 	<?php endif; ?>
 </div>
 
-<div class="search-results"></div>
-
-<div class="panel panel-default">
-	<div class="panel-heading">Map</div>
-	<div id="map-panel" class="panel-body">
-		<div id="map"></div>
-	</div>
+<div class="map-panel">
+	<div class="map-overlay">Click to expand map</div>
+	<div id="map" style="height:50px;"></div>
 </div>
 <?php partial("map", [
 	'items' => R::exportAll($search['results']),
 	'init' => true,
 ]); ?>
+
+<div class="search-results"></div>
 
 <?php else: ?>
 <div class="no-search-results">

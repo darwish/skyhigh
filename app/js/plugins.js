@@ -180,3 +180,10 @@ function niceRound(number) {
 $(document).on('shown.bs.modal', function() {
 	$(this).find('[autofocus]').focus();
 });
+
+$(document).on('click', '.map-overlay', function() {
+	$(this).remove();
+	$('#map').height(350);
+	window.map.invalidateSize(true); // Yay, globals!
+	setTimeout(fitMapBounds, 500);
+});
