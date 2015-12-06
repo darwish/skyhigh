@@ -49,6 +49,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
+				<a class="navbar-brand" href="index.php" style="padding: 9px;"><img src="img/pin-small.png" width="32"></a>
 				<a class="navbar-brand" href="index.php">NearBuy</a>
 			</div>
 			<div id="navbar" class="navbar-collapse collapse">
