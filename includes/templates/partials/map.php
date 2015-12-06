@@ -7,48 +7,40 @@ function initMap() {
 	var items = <?= json_encode($items); ?>;
 
 	L.mapbox.accessToken = 'pk.eyJ1IjoiY3JvY29kb3lsZSIsImEiOiJjaWhpZzRlY2MwbXFqdGNsenRqZmxqMHBrIn0.7yc8ndkeNHCD1TxhFzwe6w';
-
-	var dealPoints = [];
-	for (var i = 0; i < items.length; i++) {
-		var item = items[i];
-		var shop = item.shop;
-
-		dealPoints.push({
-			lat        : shop.latitude,
-			lon        : shop.longitude,
-			storeName  : shop.name,
-			itemName   : item.title,
-			percentOff : calculateDiscount(item.discount_price, item.original_price),
-			imgUrl     : item.image,
-			id         : item.id
-		});
-	}
-
 	var map = window.map = L.mapbox.map('map', 'mapbox.dark');
-
-	for (var i = 0; i < dealPoints.length; i++) {
-		addItem(dealPoints[i]);
-	}
 
 	var userLocation = L.AwesomeMarkers.icon({
 		icon: 'home',
 		markerColor: 'red'
 	});
 
-	markers.push(L.marker([mapLat,mapLon], {icon: userLocation}).addTo(map));
+	var userMarker = L.marker([ mapLat, mapLon ], { icon: userLocation }).addTo(map);
+	markers.push(userMarker);
+
+	for (var i = 0; i < items.length; i++) {
+		addItem(items[i]);
+	}
 
 	_fitMapBounds();
 
-	function addItem(item){
+	function addItem(item) {
+		var discountPercentage = calculateDiscount(item.discount_price, item.original_price);
+
 		var link =
-			'<a href="item.php?id=' + item.id + '" class="leaflet-popup-item">\
-				<img class="leaflet-popup-item-image" src="' + item.imgUrl + '" width="50">' +
-				'<span class="leaflet-popup-item-name">' + item.itemName + '</span>\
-			</a>\
-		';
+			'<a href="item.php?id=' + item.id + '" class="leaflet-popup-item">' +
+				'<img class="leaflet-popup-item-image" src="' + item.image + '" width="50">' +
+				'<span class="leaflet-popup-item-name">' +
+					item.title + '<br>' +
+					'<span class="leaflet-popup-item-price">' +
+						'<b>' + formatMoney(item.discount_price) + '</b>' +
+						' (' + discountPercentage + '% off)'
+					'</span>' +
+				'</span>' +
+			'</a>'
+		;
 
 		// Check for existing marker and add to it if it exists
-		var posString = item.lat + "," + item.lon;
+		var posString = item.shop.latitude + "," + item.shop.longitude;
 		if (posString in markersByPosition) {
 			var marker = markersByPosition[posString];
 			marker.getPopup().setContent(marker.getPopup().getContent() + link);
@@ -61,11 +53,11 @@ function initMap() {
 		});
 
 		var options = {
-			title: item.percentOff + '% off ' + item.itemName,
+			title: discountPercentage + '% off ' + item.title,
 			icon: itemIcon
 		};
 
-		var mark = L.marker([item.lat, item.lon], options).addTo(map);
+		var mark = L.marker([item.shop.latitude, item.shop.longitude], options).addTo(map);
 		markers.push(mark);
 
 		mark.bindPopup(link);

@@ -133,6 +133,13 @@ function getLocation(callback) {
 	});
 }
 
+// For rock-solid demos, don't rely on shaky things like browser geolocation
+window.user_position = {
+	coords: {
+		latitude: 37.7862475,
+		longitude: -122.4117509
+	}
+};
 window.calculate_distance_queue = [];
 function calculateDistance(lat, lon, callback) {
 	if (!window.user_position) {
@@ -147,7 +154,7 @@ function calculateDistance(lat, lon, callback) {
 			callback: callback
 		});
 	} else {
-		_calculateDistance(callback);
+		_calculateDistance(lat, lon, callback);
 	}
 
 	function _calculateDistances() {

@@ -93,7 +93,7 @@ function partial($name, array $__args = []) {
 }
 
 function search($query, $category_id = null, $page = 1) {
-	$where = [];
+	$where = ['shop_id IS NOT NULL'];
 	$params = [];
 
 	if (!empty($query)) {
@@ -144,6 +144,7 @@ function getItemCounts() {
 	   "SELECT c.id, COUNT(*) as count
 		FROM category c
 			INNER JOIN item i ON c.id = i.category_id
+		WHERE i.shop_id IS NOT NULL
 		GROUP BY c.id
 	");
 
