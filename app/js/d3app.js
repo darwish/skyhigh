@@ -1,6 +1,6 @@
 function addAxesAndLegend (svg, xAxis, yAxis, margin, chartWidth, chartHeight) {
   var legendWidth  = 200,
-      legendHeight = 100;
+      legendHeight = 70;
 
   // clipping to make sure nothing appears behind legend
   svg.append('clipPath')
@@ -26,10 +26,11 @@ function addAxesAndLegend (svg, xAxis, yAxis, margin, chartWidth, chartHeight) {
     .call(yAxis)
     .append('text')
       .attr('transform', 'rotate(-90)')
-      .attr('y', 6)
+      .attr('x', -150)
+      .attr('y', -50)
       .attr('dy', '.71em')
       .style('text-anchor', 'end')
-      .text('Time (s)');
+      .text('Revenue ($1k)');
 
   var legend = svg.append('g')
     .attr('class', 'legend')
@@ -45,25 +46,26 @@ function addAxesAndLegend (svg, xAxis, yAxis, margin, chartWidth, chartHeight) {
     .attr('width',  75)
     .attr('height', 20)
     .attr('x', 10)
-    .attr('y', 10);
+    .attr('y', 40);
 
   legend.append('text')
-    .attr('x', 115)
-    .attr('y', 25)
-    .text('5% - 95%');
+    .attr('x', 105)
+    .attr('y', 55)
+    .text('due Upsell');
 
   legend.append('rect')
     .attr('class', 'inner')
     .attr('width',  75)
     .attr('height', 20)
     .attr('x', 10)
-    .attr('y', 40);
+    .attr('y', 10);
 
   legend.append('text')
-    .attr('x', 115)
-    .attr('y', 55)
-    .text('25% - 75%');
+    .attr('x', 105)
+    .attr('y', 25)
+    .text('Direct');
 
+  /*
   legend.append('path')
     .attr('class', 'median-line')
     .attr('d', 'M10,80L85,80');
@@ -72,6 +74,7 @@ function addAxesAndLegend (svg, xAxis, yAxis, margin, chartWidth, chartHeight) {
     .attr('x', 115)
     .attr('y', 85)
     .text('Median');
+  */
 }
 
 function drawPaths (svg, data, x, y) {
@@ -136,7 +139,7 @@ function addMarker (marker, svg, chartHeight, x) {
   var radius = 32,
       xPos = x(marker.date) - radius - 3,
       yPosStart = chartHeight - radius - 3,
-      yPosEnd = (marker.type === 'Client' ? 80 : 160) + radius - 3;
+      yPosEnd = (marker.type === 'End' ? 160 : 200) + radius - 3;
 
   var markerG = svg.append('g')
     .attr('class', 'marker '+marker.type.toLowerCase())
@@ -186,7 +189,7 @@ function startTransitions (svg, chartWidth, chartHeight, rectClip, markers, x) {
 function makeChart (data, markers) {
   var svgWidth  = 700,
       svgHeight = 500,
-      margin = { top: 20, right: 20, bottom: 40, left: 40 },
+      margin = { top: 20, right: 20, bottom: 40, left: 60 },
       chartWidth  = svgWidth  - margin.left - margin.right,
       chartHeight = svgHeight - margin.top  - margin.bottom;
 

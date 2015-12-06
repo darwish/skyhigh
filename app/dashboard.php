@@ -1,9 +1,6 @@
 <?php require __DIR__ . '/../includes/start.php'; ?>
 <?php require __DIR__ . '/../includes/templates/header.php'; ?>
 
-<script src="http://d3js.org/d3.v3.js"></script>
-<script src="js/d3app.js"></script>
-<link href="css/d3app.css" rel="stylesheet"  />
 <script src="js/vendor/dropzone.js"></script>
 <link href="css/dropzone.css" rel="stylesheet"  />
 <link href="css/dashboard.css" rel="stylesheet"  />
@@ -14,7 +11,7 @@ Dropzone.options.deadend = {
     dictDefaultMessage: "Add files",
     acceptedFiles: ".csv",
     init: function() {
-        this.on("complete", function(file) { 
+        this.on("complete", function(file) {
 		window.setTimeout(function(){location=location}, 1000);
 		});
     },
@@ -45,6 +42,7 @@ Dropzone.options.deadend = {
             <form id="deadend" action="/upload-deadend.php" class="dropzone"></form>
         </div>
         <div id="analytics" class="tab-pane fade">
+            <h1>Gizmo Sale Campaign <i>August 2014</i></h1>
             <!-- this will get populated with a d3.js plot -->
         </div>
     </div>
@@ -67,9 +65,13 @@ $(function() {
         result.discount_percentage = -calculateDiscount(result.discount_price, result.original_price);
         var item = resultItemTemplate(result);
         $('#tbody').append(item);
-    });
+    })
 });
 </script>
+
+<script src="http://d3js.org/d3.v3.js"></script>
+<script src="js/d3app.js"></script>
+<link href="css/d3app.css" rel="stylesheet"  />
 
 
 <?php require __DIR__ . '/../includes/templates/footer.php'; ?>
