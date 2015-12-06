@@ -1,5 +1,5 @@
 <?php
-require __DIR__ . '/../includes/start.php';
+require_once __DIR__ . '/../includes/start.php';
 
 $categories = json_decode(file_get_contents(__DIR__ . "/../data/categories.json"), true);
 

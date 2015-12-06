@@ -1,6 +1,12 @@
 <?php
 
 function generateDB() {
+	R::exec('DROP TABLE category');
+	R::exec('DROP TABLE item');
+	R::exec('DROP TABLE shop');
+	
+	require __DIR__ . '/../utility/insert-categories.php';
+	
 	$storeData = json_decode(file_get_contents(__DIR__ . '/../data/stores.json'), true);
 
 	$categories = R::findAll("category");
