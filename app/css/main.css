@@ -186,3 +186,8 @@
 		margin-top: 20px;
 	}
 }
+
+/* trying to make things glossy */
+.jumbotron {
+	background-color: transparent;
+}

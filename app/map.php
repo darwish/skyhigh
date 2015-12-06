@@ -1,11 +1,9 @@
-<div class="container fill">
-	<div class="panel panel-default">
+<div class="panel panel-default">
 	<div class="panel-heading">Map</div>
-		<div id="map-panel" class="panel-body">
-			<div id="map"></div>
-		</div>
+	<div id="map-panel" class="panel-body">
+		<div id="map"></div>
 	</div>
- </div>
+</div>
 
  <script>
  	var mapLat = 37.7833;
