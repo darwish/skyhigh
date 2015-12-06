@@ -144,7 +144,7 @@
 	width: 200px;
 	height: 200px;
 	margin-right: 10px;
-	margin-bottom: 0;
+	margin-bottom: 20px;
 }
 
 .purchase-item .title {
@@ -172,7 +172,6 @@
 .purchase-item .price {
 	clear: left;
 	width: 150px;
-	padding-top: 20px;
 }
 
 .purchase-item .discount-price {
@@ -190,6 +189,19 @@
 }
 .purchase-item #pay-now {
 	margin: 0 !important;
+}
+
+.purchase-item .map-panel-container {
+	clear: left;
+	margin-right: 270px;
+}
+
+.purchase-item .price {
+	float: right;
+	clear: right;
+	width: 250px;
+	text-align: center;
+	margin-top: 20px;
 }
 
 @media (max-width: 767px) {
@@ -235,4 +247,31 @@
 	line-height: 1;
 	text-transform: uppercase;
 	font-weight: bold;
+}
+
+.leaflet-popup-content {
+	max-height: 150px;
+	width: 300px;
+	overflow: auto;
+}
+
+.leaflet-popup-item {
+	float: left;
+	clear: left;
+}
+
+.leaflet-popup-item-image {
+	float: left;
+	clear: left;
+}
+
+.leaflet-popup-item-name {
+	display: inline-block;
+	margin-left: 10px;
+	vertical-align: middle;
+	line-height: 50px;
+	max-width: 200px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
 }

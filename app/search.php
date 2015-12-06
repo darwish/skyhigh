@@ -36,6 +36,18 @@ $pageTitle = "Search Results";
 </div>
 
 <div class="search-results"></div>
+
+<div class="panel panel-default">
+	<div class="panel-heading">Map</div>
+	<div id="map-panel" class="panel-body">
+		<div id="map"></div>
+	</div>
+</div>
+<?php partial("map", [
+	'items' => R::exportAll($search['results']),
+	'init' => true,
+]); ?>
+
 <?php else: ?>
 <div class="no-search-results">
 	Sorry, no results found for <em><?= h($q) ?></em>. Try searching for a more general term, or browsing by category.
@@ -91,8 +103,4 @@ $(function() {
 	}
 });
 </script>
-
-<?php
-	require_once('map.php');
-?>
 <?php require __DIR__ . '/../includes/templates/footer.php'; ?>
