@@ -37,5 +37,13 @@
 			</div>
 		</div>
 	</div>
+
+	<div class="modal fade" id="qr-modal" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content text-center">
+				<img class="qr-code">
+			</div>
+		</div>
+	</div>
 	</body>
 </html>

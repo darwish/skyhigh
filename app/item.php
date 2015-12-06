@@ -24,9 +24,17 @@ $pageTitle = "Purchase Item";
 
 	<script type="text/plain" id="item-template">
 	<div class="purchase-item clearfix">
-		<div class="thumbnail"><img src="{{thumbnail}}"></div>
+		<div class="thumbnail item-thumbnail"><img src="{{thumbnail}}"></div>
 
 		<div class="pay-buttons">
+			<div class="thumbnail">
+				<a href="#qr-modal" data-toggle="modal" class="qr-modal-trigger">
+					<img src="https://chart.googleapis.com/chart?cht=qr&chs=250x250&chl=asdfasdf">
+				</a>
+				<div class="caption">
+					<small>Show this QR code to the cashier to redeem your personalized coupon for {{positive_discount_percentage}}% off.</small>
+				</div>
+			</div>
 			<button id="pay-now"
 			        data-sc-key="sbpb_ZjVlZGMzMTctYTY4MS00MTA5LWJiM2MtYmMwZGE0ZTMzZGZi"
 			        data-name="{{title}}"
@@ -38,8 +46,6 @@ $pageTitle = "Purchase Item";
 			        data-color="#12B830">
 				Pay Now
 			</button>
-			<div class="pay-or">or</div>
-			<button class="pay-later">Pay in Store</button>
 		</div>
 
 		<div class="details">
@@ -67,10 +73,17 @@ $pageTitle = "Purchase Item";
 		var item = <?= json_encode($item->export()); ?>;
 
 		item.discount_percentage = calculateDiscount(item.discount_price, item.original_price);
+		item.positive_discount_percentage = -calculateDiscount(item.discount_price, item.original_price);
 		item.discount_price_cents = Math.round(item.discount_price * 100);
 
 		var item = itemTemplate(item);
 		$('.item-container').append(item);
+
+		$('.qr-modal-trigger').click(function() {
+			var src = $(this).find('img').prop('src');
+			src = src.replace(/&chs=.*?&/, '&chs=500x500&');
+			$('#qr-modal .qr-code').prop('src', src);
+		});
 	});
 	</script>
 <?php endif; ?>
