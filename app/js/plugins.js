@@ -154,7 +154,7 @@ function calculateDistance(lat, lon, callback) {
 			callback: callback
 		});
 	} else {
-		_calculateDistance(callback);
+		_calculateDistance(lat, lon, callback);
 	}
 
 	function _calculateDistances() {
