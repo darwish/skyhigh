@@ -1,0 +1,4 @@
+/* some overrides for the dashboard */
+#inventory > * {
+    font-size: 1em;
+}
