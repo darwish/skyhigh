@@ -93,10 +93,35 @@ function partial($name, array $__args = []) {
 }
 
 function search($query, $category_id = null, $page = 1) {
-	// Fake results for now
-	$results = fakeItems();
+	$where = [];
+	$params = [];
+
+	if (!empty($query)) {
+		$where[] = "(title LIKE ? OR description LIKE ?)";
+		$params[] = "%$query%";
+		$params[] = "%$query%";
+	}
+
+	if ($category_id) {
+		$children = R::load("category", $category_id)->ownCategoryList;
+		$categoryAndChildrenIds = array_merge(
+			[$category_id],
+			array_map(function($c) { return $c->id; }, $children)
+		);
+		$slots = R::genSlots($categoryAndChildrenIds);
+
+		$where[] = "category_id IN ($slots)";
+		$params = array_merge($params, $categoryAndChildrenIds);
+	}
 
 	$pageSize = 10;
+	$offset = ($page - 1) * $pageSize;
+
+	$results = R::find("item", implode(" AND ", $where) . " LIMIT $offset, $pageSize", $params);
+	foreach ($results as $item) {
+		$item->shop; // Load shop data for export
+	}
+
 	$pageStart = ($page - 1) * $pageSize + 1;
 	$pageEnd = $pageStart + $pageSize - 1;
 	if ($pageEnd > count($results)) {
