@@ -60,7 +60,7 @@ $pageTitle = "Purchase Item";
 			        data-redirect-url="<?= $redirectUrl ?>"
 			        data-masterpass="true"
 			        data-color="#12B830">
-				Pay Now
+				<img src="css/images/Master-Card-icon-sm.png"></img>&nbsp;Pay Now
 			</button>
 			<?php else: ?>
 			<button class="btn btn-lg btn-success" disabled><span class="glyphicon glyphicon-ok"></span> Paid</button>
