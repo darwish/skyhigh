@@ -14,7 +14,9 @@ Dropzone.options.deadend = {
     dictDefaultMessage: "Add files",
     acceptedFiles: ".csv",
     init: function() {
-        this.on("complete", function(file) { location=location; });
+        this.on("complete", function(file) { 
+		window.setTimeout(function(){location=location}, 1000);
+		});
     },
 };
 </script>
