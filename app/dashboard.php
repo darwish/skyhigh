@@ -1,9 +1,6 @@
 <?php require __DIR__ . '/../includes/start.php'; ?>
 <?php require __DIR__ . '/../includes/templates/header.php'; ?>
 
-<script src="http://d3js.org/d3.v3.js"></script>
-<script src="js/d3app.js"></script>
-<link href="css/d3app.css" rel="stylesheet"  />
 <script src="js/vendor/dropzone.js"></script>
 <link href="css/dropzone.css" rel="stylesheet"  />
 <link href="css/dashboard.css" rel="stylesheet"  />
@@ -65,9 +62,14 @@ $(function() {
         result.discount_percentage = -calculateDiscount(result.discount_price, result.original_price);
         var item = resultItemTemplate(result);
         $('#tbody').append(item);
-    });
+    })
+    $('.nav-tabs > li > a').click();
 });
 </script>
+
+<script src="http://d3js.org/d3.v3.js"></script>
+<script src="js/d3app.js"></script>
+<link href="css/d3app.css" rel="stylesheet"  />
 
 
 <?php require __DIR__ . '/../includes/templates/footer.php'; ?>

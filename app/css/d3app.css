@@ -47,17 +47,17 @@ svg {
   stroke: rgba(0, 0, 0, 0.5);
 }
 
-.marker.client .marker-bg,
-.marker.client path {
-  fill: rgba(255, 127, 0, 0.8);
-  stroke: rgba(255, 127, 0, 0.8);
+.marker.start .marker-bg,
+.marker.start path {
+  fill: rgba(0, 153, 51, 0.8);
+  stroke: rgba(0, 153, 51, 0.8);
   stroke-width: 3;
 }
 
-.marker.server .marker-bg,
-.marker.server path {
-  fill: rgba(0, 153, 51, 0.8);
-  stroke: rgba(0, 153, 51, 0.8);
+.marker.end .marker-bg,
+.marker.end path {
+  fill: rgba(255, 27, 0, 0.8);
+  stroke: rgba(255, 27, 0, 0.8);
   stroke-width: 3;
 }
 

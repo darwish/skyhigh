@@ -1,22 +1,12 @@
 [
   {
-    "date": "2014-08-06",
-    "type": "Client",
+    "date": "2014-08-13",
+    "type": "Start",
     "version": "2.0"
   },
   {
-    "date": "2014-08-20",
-    "type": "Client",
-    "version": "2.1"
-  },
-  {
-    "date": "2014-08-27",
-    "type": "Server",
+    "date": "2014-08-28",
+    "type": "End",
     "version": "3.5"
-  },
-  {
-    "date": "2014-09-03",
-    "type": "Client",
-    "version": "2.2"
   }
 ]
