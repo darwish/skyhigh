@@ -103,7 +103,7 @@ $(function() {
     var resultItemTemplate = Handlebars.compile($('#result-item-template').html());
     var results = <?= json_encode(R::exportAll(search('',1)['results'])); ?>;
     results.forEach(function(result){
-        result.discount_percentage = -calculateDiscount(result.discount_price, result.original_price);
+        result.discount_percentage = calculateDiscount(result.discount_price, result.original_price);
         var item = resultItemTemplate(result);
         $('#tbody').append(item);
     });

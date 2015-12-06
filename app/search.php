@@ -22,17 +22,7 @@ $pageTitle = "Search Results";
 
 <h1>Search Results</h1>
 
-<?php if ($category): ?>
-<ol class="breadcrumb">
-	<li><a href="index.php">Home</a></li>
-
-	<?php if ($category->category): ?>
-	<li><a href="search.php?cat=<?= $category->category->id ?>"><?= h($category->category->name); ?></a></li>
-	<?php endif; ?>
-
-	<li><a href="search.php?cat=<?= $category->id ?>"><?= h($category->name); ?></a></li>
-</ol>
-<?php endif; ?>
+<?php partial("breadcrumbs", ['category' => $category]); ?>
 
 <?php partial("search-bar", ['q' => $q]); ?>
 
@@ -46,6 +36,18 @@ $pageTitle = "Search Results";
 </div>
 
 <div class="search-results"></div>
+
+<div class="panel panel-default">
+	<div class="panel-heading">Map</div>
+	<div id="map-panel" class="panel-body">
+		<div id="map"></div>
+	</div>
+</div>
+<?php partial("map", [
+	'items' => R::exportAll($search['results']),
+	'init' => true,
+]); ?>
+
 <?php else: ?>
 <div class="no-search-results">
 	Sorry, no results found for <em><?= h($q) ?></em>. Try searching for a more general term, or browsing by category.
@@ -61,11 +63,16 @@ $pageTitle = "Search Results";
 			<div class="original-price-text">Original price: <span class="original-price">{{formatMoney original_price}}</span></div>
 		</div>
 		<div class="discount-percentage">
-			<div class="discount-percentage-badge">{{discount_percentage}}%</div>
+			<div class="discount-percentage-badge">
+				<div class="discount-percentage-badge-wrapper">
+					<div class="discount-percentage-badge-number">{{discount_percentage}}%</div>
+					<div class="discount-percentage-badge-off">off</div>
+				</div>
+			</div>
 		</div>
 	</div>
 	<div class="details">
-		<div class="title">{{title}}</div>
+		<div class="title" title="{{title}}">{{title}}</div>
 		<div class="description">{{description}}</div>
 	</div>
 	<div class="store-info">{{shop.name}} - <span class="distance">?</span>mi</div>
@@ -96,8 +103,4 @@ $(function() {
 	}
 });
 </script>
-
-<?php
-	require_once('map.php');
-?>
 <?php require __DIR__ . '/../includes/templates/footer.php'; ?>

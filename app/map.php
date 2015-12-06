@@ -6,8 +6,8 @@
 </div>
 
  <script>
- 	var mapLat = 37.7833;
-	var mapLon = -122.4167;
+ 	var mapLat = 37.7862475;
+	var mapLon = -122.4117509;
 
 	L.mapbox.accessToken = 'pk.eyJ1IjoiY3JvY29kb3lsZSIsImEiOiJjaWhpZzRlY2MwbXFqdGNsenRqZmxqMHBrIn0.7yc8ndkeNHCD1TxhFzwe6w';
 	var map = L.mapbox.map('map', 'mapbox.dark').setView([mapLat, mapLon], 16);

@@ -18,6 +18,8 @@ $pageTitle = "Purchase Item";
 
 <h1>Purchase Item</h1>
 
+<?php partial("breadcrumbs", ['category' => $item->category]); ?>
+
 <?php if (!$item): ?>
 	<div class="alert alert-danger">
 		That item doesn't appear to exist. Try searching for a different one.
@@ -33,6 +35,7 @@ $pageTitle = "Purchase Item";
 	<?php endif; ?>
 
 	<div class="item-container"></div>
+	<?php partial("map", ['items' => [$item->export()]]); ?>
 
 	<script type="text/plain" id="item-template">
 	<div class="purchase-item clearfix">
@@ -43,7 +46,7 @@ $pageTitle = "Purchase Item";
 				<img src="https://chart.googleapis.com/chart?cht=qr&chs=250x250&chl={{id}}:<?=me() ? me()->id : 0?>">
 				<div class="caption">
 					<?php if ($purchase === null): ?>
-						<small>Show this QR code to the cashier to redeem your personalized coupon for {{positive_discount_percentage}}% off.</small>
+						<small>Show this QR code to the cashier to redeem your personalized coupon for {{discount_percentage}}% off.</small>
 					<?php else: ?>
 						<small>Show this QR code to the cashier as proof of purchase.</small>
 					<?php endif; ?>
@@ -69,28 +72,31 @@ $pageTitle = "Purchase Item";
 		</div>
 
 		<div class="details">
-			<div class="title">{{title}}</div>
+			<div class="title" title="{{title}}">{{title}}</div>
 			<div class="description">{{description}}</div>
 		</div>
-		
 
-		<div class="price">
+		<div class="price well">
 			<div class="prices">
 				<div class="discount-price">{{formatMoney discount_price}}</div>
 				<div class="original-price-text">Original price: <span class="original-price">{{formatMoney original_price}}</span></div>
 			</div>
 			<div class="discount-percentage">
-				<div class="discount-percentage-badge">{{discount_percentage}}%</div>
+				<div class="discount-percentage-badge">
+					<div class="discount-percentage-badge-wrapper">
+						<div class="discount-percentage-badge-number">{{discount_percentage}}%</div>
+						<div class="discount-percentage-badge-off">off</div>
+					</div>
+				</div>
 			</div>
 		</div>
 
-		<div class="store-info">{{shop.name}} - <span class="distance">?</span>mi</div>
-		
-		<br>
-		<?php
-			require_once('map.php');
-		?>
-
+		<div class="panel panel-default map-panel-container">
+			<div class="panel-heading">Map</div>
+			<div id="map-panel" class="panel-body">
+				<div id="map"></div>
+			</div>
+		</div>
 	</div>
 	</script>
 
@@ -100,12 +106,13 @@ $pageTitle = "Purchase Item";
 		var data = <?= json_encode($item->export()); ?>;
 
 		data.discount_percentage = calculateDiscount(data.discount_price, data.original_price);
-		data.positive_discount_percentage = -calculateDiscount(data.discount_price, data.original_price);
 		data.discount_price_cents = Math.round(data.discount_price * 100);
 
 		// Make this an object instead of a string so that we can use it in the calculateDistance callback
 		var item = $(itemTemplate(data));
 		$('.item-container').append(item);
+
+		initMap();
 
 		calculateDistance(data.shop.latitude, data.shop.longitude, function(distance) {
 			item.find('.distance').text(niceRound(distance).toLocaleString());

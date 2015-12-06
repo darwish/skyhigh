@@ -1,212 +1,191 @@
 [
   {
     "reference": 3422423,
-    "name": "Canadian Tire",
+    "name": "Trader Joes",
     "address": null,
-    "longitude": 0.0,
-    "latitude": 0.0
+    "latitude": 37.7705613,
+    "longitude": -122.4285696
   },
   {
     "reference": 5872616,
     "name": "Walgreens",
     "address": null,
-    "longitude": 37.7876511,
-    "latitude": -122.419046
+    "latitude": 37.7876511,
+    "longitude": -122.419046
   },
   {
     "reference": 5873456,
     "name": "Econo Market",
     "address": null,
-    "longitude": 37.7876257,
-    "latitude": -122.416814
+    "latitude": 37.7876257,
+    "longitude": -122.416814
   },
   {
     "reference": 3617116,
     "name": "Nob Hill Hardware",
     "address": null,
-    "longitude": 37.7903438,
-    "latitude": -122.4166809
+    "latitude": 37.7903438,
+    "longitude": -122.4166809
   },
   {
     "reference": 7099616,
     "name": "Gumps",
     "address": null,
-    "longitude": 37.7882111,
-    "latitude": -122.4049311
+    "latitude": 37.7882111,
+    "longitude": -122.4049311
   },
   {
     "reference": 606344,
     "name": "Macys",
     "address": null,
-    "longitude": 37.7875381,
-    "latitude": -122.4064992
+    "latitude": 37.7875381,
+    "longitude": -122.4064992
   },
   {
     "reference": 899149,
     "name": "ABC Supermarket Plus",
     "address": null,
-    "longitude": 37.7973679,
-    "latitude": -122.4075307
+    "latitude": 37.7973679,
+    "longitude": -122.4075307
   },
   {
     "reference": 8116751,
     "name": "Perfect Fit International",
     "address": null,
-    "longitude": 37.7967808,
-    "latitude": -122.407579
+    "latitude": 37.7967808,
+    "longitude": -122.407579
   },
   {
     "reference": 7738195,
-    "name": "Toys R Us",
+    "name": "lululemon athletica",
     "address": null,
-    "longitude": 0.0,
-    "latitude": 0.0
+    "latitude": 37.7901788,
+    "longitude": -122.4067929
   },
   {
     "reference": 8143271,
-    "name": "Princess Auto",
+    "name": "Tony Burch",
     "address": null,
-    "longitude": 0.0,
-    "latitude": 0.0
+    "latitude": 37.7885806,
+    "longitude": -122.4054249
   },
   {
     "reference": 7139165,
     "name": "RadioShack",
     "address": null,
-    "longitude": 37.7886526,
-    "latitude": -122.403939
+    "latitude": 37.7886526,
+    "longitude": -122.403939
   },
   {
     "reference": 4016192,
     "name": "Target Express",
     "address": null,
-    "longitude": 37.7904755,
-    "latitude": -122.4019971
+    "latitude": 37.7904755,
+    "longitude": -122.4019971
   },
   {
     "reference": 100386911,
-    "name": "Old Navy",
+    "name": "Shiki Inc",
     "address": null,
-    "longitude": 0.0,
-    "latitude": 0.0
+    "latitude": 37.7848717,
+    "longitude": -122.4297831
   },
   {
     "reference": 7736438,
     "name": "Globo Shoes",
     "address": null,
-    "longitude": 0.0,
-    "latitude": 0.0
+    "latitude": 37.7848717,
+    "longitude": -122.4297831
   },
   {
     "reference": 100428058,
-    "name": "Mark&#039;s",
+    "name": "Mark's",
     "address": null,
-    "longitude": 0.0,
-    "latitude": 0.0
+    "latitude": 37.7820024,
+    "longitude": -122.4265125
   },
   {
     "reference": 7579222,
     "name": "Armani Exchange",
     "address": null,
-    "longitude": 0.0,
-    "latitude": 0.0
+    "latitude": 37.7822646,
+    "longitude": -122.4140089
   },
   {
     "reference": 4468422,
     "name": "The Childrens Place",
     "address": null,
-    "longitude": 0.0,
-    "latitude": 0.0
+    "latitude": 37.7840192,
+    "longitude": -122.4073998
   },
   {
     "reference": 1538300,
     "name": "Suzy Shier",
     "address": null,
-    "longitude": 0.0,
-    "latitude": 0.0
+    "latitude": 37.7840192,
+    "longitude": -122.4073998
   },
   {
     "reference": 7156057,
     "name": "Hollister",
     "address": null,
-    "longitude": 0.0,
-    "latitude": 0.0
+    "latitude": 37.7864338,
+    "longitude": -122.423059
   },
   {
     "reference": 100425607,
     "name": "The Source",
     "address": null,
-    "longitude": 0.0,
-    "latitude": 0.0
+    "latitude": 37.7758781,
+    "longitude": -122.4119573
   },
   {
     "reference": 7762497,
     "name": "Best Buy",
     "address": null,
-    "longitude": 0.0,
-    "latitude": 0.0
+    "latitude": 37.7897679,
+    "longitude": -122.4092147
   },
   {
     "reference": 7578356,
     "name": "Home Depot",
     "address": null,
-    "longitude": 0.0,
-    "latitude": 0.0
+    "latitude": 37.7928764,
+    "longitude": -122.408926
   },
   {
     "reference": 4033210,
-    "name": "Lowe&#039;s",
+    "name": "Lowe's",
     "address": null,
-    "longitude": 0.0,
-    "latitude": 0.0
+    "latitude": 37.7928764,
+    "longitude": -122.408926
   },
   {
     "reference": 7737483,
     "name": "Bass Pro Shops",
     "address": null,
-    "longitude": 0.0,
-    "latitude": 0.0
+    "latitude": 37.7972109,
+    "longitude": -122.4095395
   },
   {
     "reference": 7172615,
     "name": "2001 Audio Video",
     "address": null,
-    "longitude": 0.0,
-    "latitude": 0.0
+    "latitude": 37.7972109,
+    "longitude": -122.4095395
   },
   {
     "reference": 7949825,
     "name": "Laura",
     "address": null,
-    "longitude": 0.0,
-    "latitude": 0.0
+    "latitude": 37.8020869,
+    "longitude": -122.41636
   },
   {
     "reference": 5874371,
     "name": "Rona",
     "address": null,
-    "longitude": 0.0,
-    "latitude": 0.0
-  },
-  {
-    "reference": 3425454,
-    "name": "Gap",
-    "address": null,
-    "longitude": 0.0,
-    "latitude": 0.0
-  },
-  {
-    "reference": 7580835,
-    "name": "Staples",
-    "address": null,
-    "longitude": 0.0,
-    "latitude": 0.0
-  },
-  {
-    "reference": 100142275,
-    "name": "Melanie Lyne",
-    "address": null,
-    "longitude": 0.0,
-    "latitude": 0.0
+    "latitude": 37.7864338,
+    "longitude": -122.423059
   }
 ]

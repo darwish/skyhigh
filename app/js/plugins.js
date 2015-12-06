@@ -100,7 +100,7 @@ Handlebars.registerHelper('formatMoney', function(number) {
 });
 
 function calculateDiscount(discountPrice, originalPrice) {
-	return Math.round(100 * (discountPrice - originalPrice) / originalPrice);
+	return Math.round(100 * (originalPrice - discountPrice) / originalPrice);
 }
 
 // From http://stackoverflow.com/a/27943/539097
