@@ -1,0 +1,129 @@
+{
+  "Apparel": [
+    "Baby Apparel",
+    "Children's Apparel",
+    "Men's Apparel",
+    "Women's Apparel",
+    "Men's Shoes",
+    "Women's Shoes",
+    "Hudson's Bay",
+    "Mark's",
+    "Sears",
+    "Walmart"
+  ],
+  "Automotive": [
+    "Auto Parts & Accessories",
+    "Auto Services",
+    "Motor Vehicles",
+    "Other",
+    "Canadian Tire",
+    "Princess Auto"
+  ],
+  "Beauty & Wellness": [
+    "Beauty Supplies & Personal Care",
+    "Salons & Spas",
+    "Other",
+    "Hudson's Bay",
+    "London Drugs",
+    "Rexall",
+    "Sears",
+    "Walmart"
+  ],
+  "Computers & Electronics": [
+    "Cameras",
+    "Cell Phones",
+    "Computers & Tablets/eReaders",
+    "Home Theatre & Audio",
+    "Peripherals & Accessories",
+    "Telecom",
+    "Televisions",
+    "Video Games",
+    "Other",
+    "Best Buy",
+    "EB Games",
+    "NCIX",
+    "Staples",
+    "The Source",
+    "Tiger Direct"
+  ],
+  "Entertainment": [
+    "Books, Music, Movies, Magazines",
+    "Events & Attractions",
+    "Video Games",
+    "Other",
+    "Best Buy",
+    "Walmart"
+  ],
+  "Financial Services": [
+    "Banking & Investing",
+    "Credit Cards",
+    "Financial Tools",
+    "Insurance",
+    "Mortgages & Loans",
+    "Other"
+  ],
+  "Groceries": [
+    "See all Groceries deals",
+    "Costco",
+    "Real Canadian Superstore",
+    "Walmart"
+  ],
+  "Home & Garden": [
+    "Appliances",
+    "Furniture",
+    "Home Décor",
+    "Home Improvement & Tools",
+    "Home Services & Repairs",
+    "Office Supplies",
+    "Outdoors & Patio",
+    "Pets",
+    "Other",
+    "Canadian Tire",
+    "Home Hardware",
+    "Hudson's Bay",
+    "JYSK",
+    "RONA",
+    "Walmart"
+  ],
+  "Kids & Babies": [
+    "Baby Apparel",
+    "Baby Needs",
+    "Children's Apparel",
+    "School Supplies",
+    "Toys & Games",
+    "Other",
+    "Sears",
+    "Toys R Us",
+    "Walmart"
+  ],
+  "Restaurants": [
+    "Coffee & Desserts",
+    "Fast Food",
+    "Restaurants & Bars",
+    "Other"
+  ],
+  "Small Business": [
+    "Furniture",
+    "Office Supplies",
+    "Services"
+  ],
+  "Sports & Fitness": [
+    "Women's Clothing",
+    "Men's Clothing",
+    "Equipment",
+    "Gyms & Related Services",
+    "Other",
+    "Canadian Tire",
+    "Sears",
+    "Walmart"
+  ],
+  "Travel": [
+    "Car Rentals",
+    "Events & Attractions",
+    "Flights",
+    "Hotels",
+    "Rail & Bus",
+    "Vacations & Cruises",
+    "Other"
+  ]
+}
