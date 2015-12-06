@@ -52,7 +52,7 @@
 	font-size: 3em;
 }
 
-.result-item .discount-percentage {
+.result-item .discount-percentage-badge {
 	width: 120px;
 	height: 100px;
 	line-height: 100px;
@@ -89,7 +89,18 @@
 	.result-item .price {
 		float: none;
 		clear: both;
+		display: table;
 		width: 100%;
+	}
+
+	.result-item .prices {
+		display: table-cell;
+		vertical-align: middle;
+		width: 45%;
+	}
+
+	.result-item .discount-percentage {
+		display: table-cell;
 	}
 
 	.result-item .store-info {
