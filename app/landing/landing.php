@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Retail Renegade - Savings Just For You</title>
+    <title>NearBuy - Savings Just For You</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -45,8 +45,8 @@
     <!-- Header -->
     <header id="top" class="header">
         <div class="text-vertical-center">
-            <h1 class="white-title">Retail Renegade</h1>
-            <h3 class="white-title">The savings you want</h3>
+            <h1 class="white-title">NearBuy</h1>
+            <h3 class="white-title">Capitalize on local deals</h3>
             <br>
             <a href="#about" class="btn-light btn-lg">Find Out More</a>
         </div>
