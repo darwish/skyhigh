@@ -24,6 +24,8 @@ $pageTitle = "Search Results";
 
 <?php if ($category): ?>
 <ol class="breadcrumb">
+	<li><a href="index.php">Home</a></li>
+
 	<?php if ($category->category): ?>
 	<li><a href="search.php?cat=<?= $category->category->id ?>"><?= h($category->category->name); ?></a></li>
 	<?php endif; ?>
@@ -66,7 +68,7 @@ $pageTitle = "Search Results";
 		<div class="title">{{title}}</div>
 		<div class="description">{{description}}</div>
 	</div>
-	<div class="store-info">{{shop.name}} - {{shop.distance}}</div>
+	<div class="store-info">{{shop.name}} - <span class="distance">?</span>mi</div>
 </a>
 </script>
 
@@ -79,8 +81,13 @@ $(function() {
 		var result = results[i];
 		result.discount_percentage = calculateDiscount(result.discount_price, result.original_price);
 
-		var item = resultItemTemplate(result);
+		// Make this an object instead of a string so that we can use it in the calculateDistance callback
+		var item = $(resultItemTemplate(result));
 		$('.search-results').append(item);
+
+		calculateDistance(result.shop.latitude, result.shop.longitude, function(distance) {
+			item.find('.distance').text(niceRound(distance));
+		});
 	}
 });
 </script>

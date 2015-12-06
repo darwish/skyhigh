@@ -18,10 +18,18 @@
 
 void Main()
 {
-	string query = "toaster";
+	foreach (var query in new[] { "light bulb" })
+		DownloadItems(query);
+}
+
+void DownloadItems(string query)
+{
+	Console.WriteLine(query);
+	
 	string url = string.Format("http://www.redflagdeals.com/search/?q={0}&section=offers&page=1&timeframe=any", query);
 	string storesPath = @"E:\Users\Michael\Documents\GitHub\skyhigh\data\stores.json";
 	var client = new WebClient();
+	var rand = new Random();
 	
 	client.Headers[HttpRequestHeader.Accept] = "application/json";
 	client.Headers["X-Requested-With"] = "XMLHttpRequest";
@@ -47,7 +55,8 @@ void Main()
 		Console.WriteLine("Fetching item {0} of {1}", i, nodes.Count);
 		
 		string title = x.Descendants("a").Where(y => y.ParentNode.Name == "h3").First().InnerText;
-		string itemPage = "http://www.redflagdeals.com" + x.Element("a").Attributes["href"].Value;		
+		string itemPage = "http://www.redflagdeals.com" + x.Element("a").Attributes["href"].Value;
+		decimal price = decimal.Parse(Regex.Match(title, @"\$(\d+\.\d\d)").Groups[1].Value);
 		
 		var doc2 = new HtmlDocument();
 		doc2.LoadHtml(client.DownloadString(itemPage));
@@ -62,13 +71,14 @@ void Main()
 			
 		return new Item()
 		{
-			name = title.Substring(0, title.IndexOf(" - $")),
-			price = decimal.Parse(Regex.Match(title, @"\$(\d+\.\d\d)").Groups[1].Value),
+			title = title.Substring(0, title.IndexOf("$")),
+			price = price,
 			image = doc2.DocumentNode.SelectSingleNode("//*[@id='side_block']/a/img").Attributes["src"].Value,
 			description = doc2.DocumentNode.SelectSingleNode("//*[@id='description']").InnerText.Trim(),
 			url =  doc2.DocumentNode.SelectSingleNode("//*[@id='side_block']/a").Attributes["href"].Value,
 			category = x.Descendants("a").Where(y => y.ParentNode.ParentNode.Name == "ul" && y.ParentNode.ParentNode.Attributes["class"].Value == "related").First().InnerText,
-			shopReference = storeID
+			shopReference = storeID,
+			discountPrice = Math.Round(price * (decimal)(rand.Next(35) / 100.0 + 0.6), 2)
 		};
 	}).ToList();
 	
@@ -77,7 +87,7 @@ void Main()
 	string json = JsonConvert.SerializeObject(items, Newtonsoft.Json.Formatting.Indented);
 	File.WriteAllText(@"E:\Users\Michael\Documents\GitHub\skyhigh\data\" + query + ".json", json);
 	Console.WriteLine("\n");
-	Console.WriteLine(json);
+	//Console.WriteLine(json);
 }
 
 // Define other methods and classes here
@@ -85,12 +95,12 @@ class Item
 {
 	public int shopReference;
 	public string image;
-	public string name;
+	public string title;
 	public string description;
 	public string url;
 	public string category;
 	public decimal price;
-	public double discount;
+	public decimal discountPrice;
 }
 
 class Shop
