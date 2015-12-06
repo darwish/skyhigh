@@ -58,7 +58,7 @@ $pageTitle = "Purchase Item";
 			<button id="pay-now"
 			        data-sc-key="sbpb_ZjVlZGMzMTctYTY4MS00MTA5LWJiM2MtYmMwZGE0ZTMzZGZi"
 			        data-name="{{title}}"
-			        data-description="{{description}}"
+			        data-description="{{substr description 0 255}}"
 			        data-reference="{{id}}"
 			        data-amount="{{discount_price_cents}}"
 			        data-redirect-url="<?= $redirectUrl ?>"
