@@ -19,7 +19,7 @@ $counts = getItemCounts();
 	<div class="col-sm-4">
 		<div class="category category-parent">
 			<a href="search.php?cat=<?= $parent->id ?>">
-				<?= h($parent->name); ?> (<?= isset($counts[$parent->id]) ? $counts[$parent->id] : 0 ?>)
+				<?= h($parent->name); ?>
 			</a>
 		</div>
 
