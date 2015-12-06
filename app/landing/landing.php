@@ -57,7 +57,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2>Save on what YOU want to buy</h2>
+                    <h2>Save on what <em>you</em> want to buy</h2>
                     <p class="lead">Search for things you know you want, and stores in your area will make a coupon, personalized just for you.</p>
                 </div>
 				<div class="col-lg-12 text-center">
