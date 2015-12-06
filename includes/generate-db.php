@@ -7,28 +7,40 @@ function generateDB() {
 
 	foreach ($storeData as $store) {
 		$store['_type'] = 'shop';
-		pr($store);
 		$storeBean = R::dispense($store);
 		R::store($storeBean);
 	}
+	
+	if ($handle = opendir(__DIR__ . '/../data/items/')) {
+		while (false !== ($entry = readdir($handle))) {
+			if ($entry != "." && $entry != "..") {
+				addItemToDB($entry, $categories);
+			}
+		}
+	
+		closedir($handle);
+	}
+}
 
-	$toasterData = json_decode(file_get_contents(__DIR__ . '/../data/toaster.json'), true);
+function addItemToDB($filename, $categories) {
+	$itemData = json_decode(file_get_contents(__DIR__ . "/../data/items/$filename"), true);
 
-	$toasterData = array_map(function($x) use($categories) {
+	$itemData = array_map(function($x) use($categories) {
 		$x['_type'] = 'item';
 		$x['shop'] = R::findOne('shop', 'reference = ?', [$x['shopReference']]);
+		unset($x['shopReference']);
 
 		foreach ($categories as $cat) {
-			if ($x['category'] === $cat['name']) {
+			if (strtolower($x['category']) === strtolower($cat['name'])) {
 				$x['category'] = $cat;
 				break;
 			}
 		}
 
 		return $x;
-	}, $toasterData);
+	}, $itemData);
 
-	$items = R::dispense($toasterData);
+	$items = R::dispense($itemData);
 
 	foreach ($items as $item)
 		R::storeAll($items);
