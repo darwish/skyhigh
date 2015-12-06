@@ -139,6 +139,21 @@ function search($query, $category_id = null, $page = 1) {
 	];
 }
 
+function getItemCounts() {
+	$counts = R::getAll(
+	   "SELECT c.id, COUNT(*) as count
+		FROM category c
+			INNER JOIN item i ON c.id = i.category_id
+		GROUP BY c.id
+	");
+
+	$out = [];
+	foreach ($counts as $count) {
+		$out[$count['id']] = $count['count'];
+	}
+	return $out;
+}
+
 function findItem($item_id) {
 	return R::load("item", $item_id);
 }

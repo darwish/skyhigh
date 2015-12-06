@@ -2,6 +2,7 @@
 require __DIR__ . '/../includes/start.php';
 $categories = findParentCategories();
 $rows = array_chunk($categories, 3);
+$counts = getItemCounts();
 ?>
 <?php require __DIR__ . '/../includes/templates/header.php'; ?>
 
@@ -16,10 +17,18 @@ $rows = array_chunk($categories, 3);
 
 	<?php foreach ($row as $parent): ?>
 	<div class="col-sm-4">
-		<div class="category category-parent"><a href="search.php?cat=<?= $parent->id ?>"><?= h($parent->name); ?></a></div>
+		<div class="category category-parent">
+			<a href="search.php?cat=<?= $parent->id ?>">
+				<?= h($parent->name); ?> (<?= isset($counts[$parent->id]) ? $counts[$parent->id] : 0 ?>)
+			</a>
+		</div>
 
 		<?php foreach (findChildCategories($parent) as $child): ?>
-			<div class="category category-child"><a href="search.php?cat=<?= $child->id ?>"><?= h($child->name); ?></a></div>
+			<div class="category category-child">
+				<a href="search.php?cat=<?= $child->id ?>">
+					<?= h($child->name); ?> (<?= isset($counts[$child->id]) ? $counts[$child->id] : 0 ?>)
+				</a>
+			</div>
 		<?php endforeach; ?>
 
 	</div>
