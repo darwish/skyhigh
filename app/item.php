@@ -71,6 +71,7 @@ $pageTitle = "Purchase Item";
 			<div class="title">{{title}}</div>
 			<div class="description">{{description}}</div>
 		</div>
+		
 
 		<div class="price">
 			<div class="prices">
@@ -82,7 +83,14 @@ $pageTitle = "Purchase Item";
 			</div>
 		</div>
 
+
 		<div class="store-info">{{store}} - {{distance}}</div>
+		
+		<br>
+		<?php
+			require_once('map.php');
+		?>
+
 	</div>
 	</script>
 
