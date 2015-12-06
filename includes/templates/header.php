@@ -17,7 +17,27 @@
 				padding-top: 50px;
 				padding-bottom: 20px;
 			}
-			#map { height: 180px; }
+			#map
+			{
+				width: 100px;
+				height:100px;
+				min-height: 100%;
+				min-width: 100%;
+				display: block;
+			}
+
+			html, body
+			{
+				height: 100%;
+			}
+
+			.fill
+			{
+				min-height: 100%;
+				height: 100%;
+				width: 100%;
+				min-width: 100%;
+			}
 		</style>
 		<link rel="stylesheet" href="css/bootstrap-theme.min.css">
 		<link rel="stylesheet" href="css/main.css">
@@ -26,6 +46,8 @@
 
 		<script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
 		<script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+		<script src='https://api.tiles.mapbox.com/mapbox.js/v2.2.3/mapbox.js'></script>
+		<link href='https://api.tiles.mapbox.com/mapbox.js/v2.2.3/mapbox.css' rel='stylesheet' />
 
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 		<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
