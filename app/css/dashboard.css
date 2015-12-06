@@ -2,3 +2,35 @@
     border: none;
     height: 50px;
 }
+
+.dashboard-container {
+    margin-top: 20px;
+}
+
+#deadend {
+    border: 4px dashed lightgray;
+}
+
+#deadend .dz-message {
+    height: 100%;
+    position: relative;
+    margin: 0;
+}
+
+#deadend .dz-message span {
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    margin-top: -18px;
+    font-size: 25px;
+    color: #909090;
+}
+
+#store-details {
+    margin-top: 10px;
+}
+
+#coupon-frequency {
+    width: 60px;
+    display: inline-block;
+}
