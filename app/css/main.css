@@ -70,6 +70,13 @@
 	bottom: 20px;
 	left: 230px;
 	font-size: 0.8em;
+	color: #337ab7; /* Make it look like a link */
+}
+
+/* Make it look like a link */
+.result-item .store-info:hover, .result-item .store-info:focus {
+    color: #23527c;
+    text-decoration: underline;
 }
 
 .result-item .price {

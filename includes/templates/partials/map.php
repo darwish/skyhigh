@@ -7,7 +7,7 @@ function initMap() {
 	var items = <?= json_encode($items); ?>;
 
 	L.mapbox.accessToken = 'pk.eyJ1IjoiY3JvY29kb3lsZSIsImEiOiJjaWhpZzRlY2MwbXFqdGNsenRqZmxqMHBrIn0.7yc8ndkeNHCD1TxhFzwe6w';
-	var map = window.map = L.mapbox.map('map', 'mapbox.dark');
+	var map = window.map = L.mapbox.map('map', 'mapbox.dark', { scrollWheelZoom: false });
 
 	var userLocation = L.AwesomeMarkers.icon({
 		icon: 'home',
