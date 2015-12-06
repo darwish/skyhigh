@@ -12,7 +12,7 @@ Dropzone.options.deadend = {
     acceptedFiles: ".csv",
     init: function() {
         this.on("complete", function(file) {
-		window.setTimeout(function(){location=location}, 1000);
+		window.setTimeout(function(){location='dashboard'}, 1000);
 		});
     },
 };
@@ -101,12 +101,12 @@ $(function() {
     });
 
     var resultItemTemplate = Handlebars.compile($('#result-item-template').html());
-    var results = <?= json_encode(R::exportAll(search('',1)['results'])); ?>;
-    results.forEach(function(result){
-        result.discount_percentage = calculateDiscount(result.discount_price, result.original_price);
-        var item = resultItemTemplate(result);
-        $('#tbody').append(item);
-    });
+    // var results = <?= json_encode(R::exportAll(search('',1)['results'])); ?>;
+    // results.forEach(function(result){
+    //     result.discount_percentage = calculateDiscount(result.discount_price, result.original_price);
+    //     var item = resultItemTemplate(result);
+    //     $('#tbody').append(item);
+    // });
 
     var addressField = $('#address1');
     var zipField = $('#zip');
