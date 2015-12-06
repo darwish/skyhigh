@@ -94,28 +94,7 @@ function partial($name, array $__args = []) {
 
 function search($query, $page = 1) {
 	// Fake results for now
-	$results = [
-		[
-			'id' => rand(1, 1000),
-			'thumbnail' => "//placebear.com/200/200",
-			'title' => "Nice Black Boots",
-			'description' => "Pretty decent stuff, you know?",
-			'store' => "Canadian Tire",
-			'distance' => "0.2mi",
-			'discountPrice' => 49.9899,
-			'originalPrice' => 99.99,
-		],
-		[
-			'id' => rand(1, 1000),
-			'thumbnail' => "//placebear.com/200/200",
-			'title' => "Nice Brown Boots",
-			'description' => "Not great, to be honest.",
-			'store' => "Walmart",
-			'distance' => "0.3mi",
-			'discountPrice' => 29,
-			'originalPrice' => 39.95,
-		],
-	];
+	$results = fakeItems();
 
 	$pageSize = 10;
 	$pageStart = ($page - 1) * $pageSize + 1;
@@ -133,4 +112,36 @@ function search($query, $page = 1) {
 		'start' => $pageStart,
 		'end' => $pageEnd,
 	];
+}
+
+function findItem($item_id) {
+	// return R::findOne("item", $item_id);
+	return fakeItems()[0];
+}
+
+function fakeItems() {
+	return R::dispense([
+		[
+			'_type' =>  'item',
+			'id' => rand(1, 1000),
+			'thumbnail' => "//placebear.com/200/200",
+			'title' => "Nice Black Boots",
+			'description' => "Pretty decent stuff, you know?",
+			'store' => "Canadian Tire",
+			'distance' => "0.2mi",
+			'discount_price' => 49.9899,
+			'original_price' => 99.99,
+		],
+		[
+			'_type' =>  'item',
+			'id' => rand(1, 1000),
+			'thumbnail' => "//placebear.com/200/200",
+			'title' => "Nice Brown Boots",
+			'description' => "Not great, to be honest.",
+			'store' => "Walmart",
+			'distance' => "0.3mi",
+			'discount_price' => 29,
+			'original_price' => 39.95,
+		],
+	]);
 }

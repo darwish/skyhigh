@@ -9,6 +9,8 @@ if (!trim($q)) {
 $page = (int)getvar("page", 1);
 
 $search = search($q, $page);
+
+$pageTitle = "Search Results";
 ?>
 <?php require __DIR__ . '/../includes/templates/header.php'; ?>
 
@@ -37,11 +39,11 @@ $search = search($q, $page);
 	<div class="thumbnail"><img src="{{thumbnail}}"></div>
 	<div class="price">
 		<div class="prices">
-			<div class="discount-price">{{formatMoney discountPrice}}</div>
-			<div class="original-price-text">Original price: <span class="original-price">{{formatMoney originalPrice}}</span></div>
+			<div class="discount-price">{{formatMoney discount_price}}</div>
+			<div class="original-price-text">Original price: <span class="original-price">{{formatMoney original_price}}</span></div>
 		</div>
 		<div class="discount-percentage">
-			<div class="discount-percentage-badge">{{discountPercentage}}%</div>
+			<div class="discount-percentage-badge">{{discount_percentage}}%</div>
 		</div>
 	</div>
 	<div class="details">
@@ -55,11 +57,11 @@ $search = search($q, $page);
 <script>
 $(function() {
 	var resultItemTemplate = Handlebars.compile($('#result-item-template').html());
-	var results = <?= json_encode($search['results']); ?>;
+	var results = <?= json_encode(R::exportAll($search['results'])); ?>;
 
 	for (var i = 0; i < results.length; i++) {
 		var result = results[i];
-		result.discountPercentage = calculateDiscount(result.discountPrice, result.originalPrice);
+		result.discount_percentage = calculateDiscount(result.discount_price, result.original_price);
 
 		var item = resultItemTemplate(result);
 		$('.search-results').append(item);

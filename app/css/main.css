@@ -1,3 +1,5 @@
+/* =============== SEARCH RESULTS PAGE =============== */
+
 .search-results-meta {
 	margin-bottom: 10px;
 	margin-left: 20px;
@@ -107,4 +109,54 @@
 		margin-top: 20px;
 		position: static;
 	}
+}
+
+/* =============== ITEM PAGE =============== */
+.purchase-item {
+	display: block;
+	padding: 20px;
+	border-radius: 10px;
+	margin-bottom: 30px;
+	position: relative;
+}
+
+.purchase-item .thumbnail {
+	float: left;
+	width: 200px;
+	height: 200px;
+	margin-right: 10px;
+	margin-bottom: 0;
+}
+
+.purchase-item .title {
+	font-size: 2em;
+	font-weight: bold;
+}
+
+.purchase-item .store-info {
+	position: absolute;
+	bottom: 20px;
+	left: 230px;
+	font-size: 0.8em;
+}
+
+.purchase-item .price {
+	float: right;
+	width: 150px;
+}
+
+.purchase-item .discount-price {
+	font-size: 3em;
+}
+
+.purchase-item .discount-percentage-badge {
+	width: 120px;
+	height: 100px;
+	line-height: 100px;
+	margin: 10px auto 0;
+	text-align: center;
+	font-size: 40px;
+	border-radius: 20px;
+	background: #F57D14;
+	color: #fff;
 }
