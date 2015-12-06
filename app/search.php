@@ -62,4 +62,8 @@ $(function() {
 	}
 });
 </script>
+
+<?php
+	require_once('map.php');
+?>
 <?php require __DIR__ . '/../includes/templates/footer.php'; ?>
