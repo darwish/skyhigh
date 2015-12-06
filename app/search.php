@@ -35,7 +35,7 @@ $pageTitle = "Search Results";
 
 <script type="text/plain" id="result-item-template">
 <a href="item.php?id={{id}}" class="result-item clearfix">
-	<div class="thumbnail"><img src="{{thumbnail}}"></div>
+	<div class="thumbnail item-thumbnail"><img src="{{thumbnail}}"></div>
 	<div class="price">
 		<div class="prices">
 			<div class="discount-price">{{formatMoney discount_price}}</div>
