@@ -1,11 +1,23 @@
 <?php require __DIR__ . '/../includes/start.php'; ?>
 <?php require __DIR__ . '/../includes/templates/header.php'; ?>
 
-<link href="css/dashboard.css" rel="stylesheet"  />
 <script src="http://d3js.org/d3.v3.js"></script>
 <script src="js/d3app.js"></script>
 <link href="css/d3app.css" rel="stylesheet"  />
+<script src="js/vendor/dropzone.js"></script>
+<link href="css/dropzone.css" rel="stylesheet"  />
+<link href="css/dashboard.css" rel="stylesheet"  />
 <script>$("title").html("Dashboard")</script>
+
+<script>
+Dropzone.options.deadend = {
+    dictDefaultMessage: "Add files",
+    acceptedFiles: ".csv",
+    init: function() {
+        this.on("complete", function(file) { location=location; });
+    },
+};
+</script>
 
 <div class="bs-example">
     <ul class="nav nav-tabs">
@@ -27,6 +39,8 @@
                 <!-- this will get populated by a Handlebars.js template -->
                 </tbody>
             </table>
+            <!-- this is a Dropzone.js magic widget -->
+            <form id="deadend" action="/upload-deadend.php" class="dropzone"></form>
         </div>
         <div id="analytics" class="tab-pane fade">
             <!-- this will get populated with a d3.js plot -->

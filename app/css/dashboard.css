@@ -1,4 +1,4 @@
-/* some overrides for the dashboard */
-#inventory > * {
-    font-size: 1em;
+.dropzone {
+    border: none;
+    height: 50px;
 }
