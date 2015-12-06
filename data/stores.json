@@ -1,87 +1,87 @@
 [
   {
     "reference": 3422423,
-    "name": "Canadian Tire",
+    "name": "Trader Joes",
     "address": null,
-    "longitude": 0.0,
-    "latitude": 0.0
+    "longitude": 37.7705613,
+    "latitude": -122.4285696
   },
   {
     "reference": 5872616,
-    "name": "The Bay",
+    "name": "Walgreens",
     "address": null,
-    "longitude": 0.0,
-    "latitude": 0.0
+    "longitude":37.7876511,
+    "latitude": -122.419046
   },
   {
     "reference": 5873456,
-    "name": "Home Outfitters",
+    "name": "Econo Market",
     "address": null,
-    "longitude": 0.0,
-    "latitude": 0.0
+    "longitude": 37.7876257,
+    "latitude": -122.416814
   },
   {
     "reference": 3617116,
-    "name": "Sears",
+    "name": "Nob Hill Hardware",
     "address": null,
-    "longitude": 0.0,
-    "latitude": 0.0
+    "longitude": 37.7903438,
+    "latitude": -122.4166809
   },
   {
     "reference": 7099616,
-    "name": "Walmart",
+    "name": "Gumps",
     "address": null,
-    "longitude": 0.0,
-    "latitude": 0.0
+    "longitude": 37.7882111,
+    "latitude": -122.4049311
   },
   {
     "reference": 606344,
-    "name": "Factory Direct",
+    "name": "Macys",
     "address": null,
-    "longitude": 0.0,
-    "latitude": 0.0
+    "longitude": 37.7875381,
+    "latitude": -122.4064992
   },
   {
     "reference": 899149,
-    "name": "Kitchen Stuff Plus",
+    "name": "ABC Supermarket Plus",
     "address": null,
-    "longitude": 0.0,
-    "latitude": 0.0
+    "longitude": 37.7973679,
+    "latitude": -122.4075307
   },
   {
     "reference": 8116751,
-    "name": "Bed Bath And Beyond",
+    "name": "Perfect Fit International",
     "address": null,
-    "longitude": 0.0,
-    "latitude": 0.0
+    "longitude": 37.7967808,
+    "latitude": -122.407579
   },
   {
     "reference": 7738195,
-    "name": "Toys R Us",
+    "name": "lululemon athletica",
     "address": null,
-    "longitude": 0.0,
-    "latitude": 0.0
+    "longitude": 37.7901788,
+    "latitude": -122.4067929
   },
   {
     "reference": 8143271,
-    "name": "Princess Auto",
+    "name": "Tony Burch",
     "address": null,
-    "longitude": 0.0,
-    "latitude": 0.0
+    "longitude": 37.7885806,
+    "latitude": -122.4054249
   },
   {
     "reference": 7139165,
-    "name": "Sporting Life",
+    "name": "RadioShack",
     "address": null,
-    "longitude": 0.0,
-    "latitude": 0.0
+    "longitude": 37.7886526,
+    "latitude": -122.403939
   },
   {
     "reference": 4016192,
-    "name": "Forever21",
+    "name": "Target Express",
     "address": null,
-    "longitude": 0.0,
-    "latitude": 0.0
+    "longitude": 37.7904755,
+    "latitude": -122.4019971
   },
   {
     "reference": 100386911,
