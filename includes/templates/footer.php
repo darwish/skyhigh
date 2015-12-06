@@ -1,7 +1,7 @@
 	<hr>
 
 	<footer>
-		<p>&copy; Door Crashers 2015</p>
+		<p>&copy; NearBuy 2015</p>
 	</footer>
 	</div> <!-- /container -->
 
