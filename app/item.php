@@ -4,6 +4,8 @@ require __DIR__ . '/../includes/start.php';
 $item_id = getvar("id");
 $item = findItem($item_id);
 
+$purchase = findPurchase($item->id, me()->id);
+
 $redirectUrl = "http" . (!empty($_SERVER['HTTPS']) ? "s" : "") . "://" . $_SERVER['HTTP_HOST'] . preg_replace('/item\.php/', 'paid.php', $_SERVER['REQUEST_URI']);
 
 $pageTitle = "Purchase Item";
@@ -20,6 +22,12 @@ $pageTitle = "Purchase Item";
 	<?php partial("search-bar", ['q' => ""]); ?>
 <?php else: ?>
 
+	<?php if ($purchase): ?>
+	<div class="alert alert-success">
+		  <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Your payment has been processed! Show the QR code below to the cashier as proof of purchase.
+	</div>
+	<?php endif; ?>
+
 	<div class="item-container"></div>
 
 	<script type="text/plain" id="item-template">
@@ -28,13 +36,16 @@ $pageTitle = "Purchase Item";
 
 		<div class="pay-buttons">
 			<div class="thumbnail">
-				<a href="#qr-modal" data-toggle="modal" class="qr-modal-trigger">
-					<img src="https://chart.googleapis.com/chart?cht=qr&chs=250x250&chl=asdfasdf">
-				</a>
+				<img src="https://chart.googleapis.com/chart?cht=qr&chs=250x250&chl=asdfasdf">
 				<div class="caption">
-					<small>Show this QR code to the cashier to redeem your personalized coupon for {{positive_discount_percentage}}% off.</small>
+					<?php if ($purchase === null): ?>
+						<small>Show this QR code to the cashier to redeem your personalized coupon for {{positive_discount_percentage}}% off.</small>
+					<?php else: ?>
+						<small>Show this QR code to the cashier as proof of purchase.</small>
+					<?php endif; ?>
 				</div>
 			</div>
+			<?php if ($purchase === null): ?>
 			<button id="pay-now"
 			        data-sc-key="sbpb_ZjVlZGMzMTctYTY4MS00MTA5LWJiM2MtYmMwZGE0ZTMzZGZi"
 			        data-name="{{title}}"
@@ -46,6 +57,9 @@ $pageTitle = "Purchase Item";
 			        data-color="#12B830">
 				Pay Now
 			</button>
+			<?php else: ?>
+			<button class="btn btn-lg btn-success" disabled=""><span class="glyphicon glyphicon-ok"></span> Paid</button>
+			<?php endif; ?>
 		</div>
 
 		<div class="details">
@@ -78,12 +92,6 @@ $pageTitle = "Purchase Item";
 
 		var item = itemTemplate(item);
 		$('.item-container').append(item);
-
-		$('.qr-modal-trigger').click(function() {
-			var src = $(this).find('img').prop('src');
-			src = src.replace(/&chs=.*?&/, '&chs=500x500&');
-			$('#qr-modal .qr-code').prop('src', src);
-		});
 	});
 	</script>
 <?php endif; ?>
