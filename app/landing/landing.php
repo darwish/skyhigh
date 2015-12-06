@@ -49,6 +49,7 @@
             <h3 class="white-title">Capitalize on local deals</h3>
             <br>
             <a href="#about" class="btn-light btn-lg">Find Out More</a>
+            <br><a href="../dashboard.php" style="text-decoration: none; color: #fff ; margin-top: 20px; display: inline-block;">Merchant Portal</a>
         </div>
     </header>
 
