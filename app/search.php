@@ -52,7 +52,7 @@ $pageTitle = "Search Results";
 
 <script type="text/plain" id="result-item-template">
 <a href="item.php?id={{id}}" class="result-item clearfix">
-	<div class="thumbnail item-thumbnail"><img src="{{thumbnail}}"></div>
+	<div class="thumbnail item-thumbnail"><img src="{{image}}" width="200"></div>
 	<div class="price">
 		<div class="prices">
 			<div class="discount-price">{{formatMoney discount_price}}</div>
@@ -66,7 +66,7 @@ $pageTitle = "Search Results";
 		<div class="title">{{title}}</div>
 		<div class="description">{{description}}</div>
 	</div>
-	<div class="store-info">{{store}} - {{distance}}</div>
+	<div class="store-info">{{shop.name}} - {{shop.distance}}</div>
 </a>
 </script>
 

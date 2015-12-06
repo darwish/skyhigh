@@ -11,7 +11,9 @@ Dropzone.options.deadend = {
     dictDefaultMessage: "Add files",
     acceptedFiles: ".csv",
     init: function() {
-        this.on("complete", function(file) { location=location; });
+        this.on("complete", function(file) {
+		window.setTimeout(function(){location=location}, 1000);
+		});
     },
 };
 </script>
@@ -40,6 +42,7 @@ Dropzone.options.deadend = {
             <form id="deadend" action="/upload-deadend.php" class="dropzone"></form>
         </div>
         <div id="analytics" class="tab-pane fade">
+            <h1>Gizmo Sale Campaign <i>August 2014</i></h1>
             <!-- this will get populated with a d3.js plot -->
         </div>
     </div>

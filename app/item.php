@@ -35,11 +35,11 @@ $pageTitle = "Purchase Item";
 
 	<script type="text/plain" id="item-template">
 	<div class="purchase-item clearfix">
-		<div class="thumbnail item-thumbnail"><img src="{{thumbnail}}"></div>
+		<div class="thumbnail item-thumbnail"><img src="{{image}}"></div>
 
 		<div class="pay-buttons">
 			<div class="thumbnail">
-				<img src="https://chart.googleapis.com/chart?cht=qr&chs=250x250&chl=asdfasdf">
+				<img src="https://chart.googleapis.com/chart?cht=qr&chs=250x250&chl={{id}}:<?=me()->id?>">
 				<div class="caption">
 					<?php if ($purchase === null): ?>
 						<small>Show this QR code to the cashier to redeem your personalized coupon for {{positive_discount_percentage}}% off.</small>
@@ -60,7 +60,7 @@ $pageTitle = "Purchase Item";
 			        data-redirect-url="<?= $redirectUrl ?>"
 			        data-masterpass="true"
 			        data-color="#12B830">
-				Pay Now
+				<img src="css/images/Master-Card-icon-sm.png"></img>&nbsp;Pay Now
 			</button>
 			<?php else: ?>
 			<button class="btn btn-lg btn-success" disabled><span class="glyphicon glyphicon-ok"></span> Paid</button>
@@ -82,7 +82,7 @@ $pageTitle = "Purchase Item";
 			</div>
 		</div>
 
-		<div class="store-info">{{store}} - {{distance}}</div>
+		<div class="store-info">{{shop.name}} - {{shop.distance}}</div>
 	</div>
 	</script>
 

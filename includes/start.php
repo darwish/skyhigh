@@ -4,7 +4,7 @@ require __DIR__ . '/rb.php';
 require __DIR__ . '/util.php';
 require __DIR__ . '/models/user.php';
 require_once __DIR__ . '/generate-db.php';
-	
+
 setupErrorHandling();
 
 if (file_exists(__DIR__ . '/db.php')) {
