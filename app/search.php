@@ -9,7 +9,6 @@ if (!trim($q)) {
 $page = (int)getvar("page", 1);
 
 $search = search($q, $page);
-
 $pageTitle = "Search Results";
 ?>
 <?php require __DIR__ . '/../includes/templates/header.php'; ?>
