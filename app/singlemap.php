@@ -21,7 +21,7 @@ $pageTitle = "Purchase Item";
 
 <div id="map"></div>
 
-<script>$(function() { initMap(); });</script>
+<script>$(function() { setTimeout(initMap, 500); });</script>
 
 <?php require __DIR__ . '/../includes/templates/footer.php'; ?>
 
