@@ -27,6 +27,10 @@ if (!$item) {
 	throw new Exception("Could not find item for ID $item_id. That's bad.");
 }
 
+if (!me()) {
+	throw new Exception("Could not find a logged in user. That's bad.");
+}
+
 if ($paymentStatus === "APPROVED") {
 	$purchase = R::dispense("purchase");
 	$purchase->item = $item;

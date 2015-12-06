@@ -4,7 +4,10 @@ require __DIR__ . '/../includes/start.php';
 $item_id = getvar("id");
 $item = findItem($item_id);
 
-$purchase = findPurchase($item->id, me()->id);
+$purchase = null;
+if (me()) {
+	$purchase = findPurchase($item->id, me()->id);
+}
 
 $redirectUrl = "http" . (!empty($_SERVER['HTTPS']) ? "s" : "") . "://" . $_SERVER['HTTP_HOST'] . preg_replace('/item\.php/', 'paid.php', $_SERVER['REQUEST_URI']);
 
@@ -45,7 +48,9 @@ $pageTitle = "Purchase Item";
 					<?php endif; ?>
 				</div>
 			</div>
-			<?php if ($purchase === null): ?>
+			<?php if (!me()): ?>
+			<button class="btn btn-lg btn-success" data-toggle="modal" data-target="#signin-modal">Pay Now</button>
+			<?php elseif (!$purchase): ?>
 			<button id="pay-now"
 			        data-sc-key="sbpb_ZjVlZGMzMTctYTY4MS00MTA5LWJiM2MtYmMwZGE0ZTMzZGZi"
 			        data-name="{{title}}"
@@ -58,7 +63,7 @@ $pageTitle = "Purchase Item";
 				Pay Now
 			</button>
 			<?php else: ?>
-			<button class="btn btn-lg btn-success" disabled=""><span class="glyphicon glyphicon-ok"></span> Paid</button>
+			<button class="btn btn-lg btn-success" disabled><span class="glyphicon glyphicon-ok"></span> Paid</button>
 			<?php endif; ?>
 		</div>
 
@@ -92,6 +97,15 @@ $pageTitle = "Purchase Item";
 
 		var item = itemTemplate(item);
 		$('.item-container').append(item);
+
+		<?php if (!empty($_SESSION['pay'])): ?>
+			<?php unset($_SESSION['pay']); ?>
+
+			$('#loading-modal').modal('show');
+			setTimeout(function() {
+				$('#pay-now').click();
+			}, 1000);
+		<?php endif; ?>
 	});
 	</script>
 <?php endif; ?>

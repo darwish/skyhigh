@@ -73,10 +73,10 @@ function doAjax(url, method, data, success, error) {
 }
 
 $(document).on('form-success', '[data-form="signin"]', function(e, response) {
-	location = "index.php";
+	location = location;
 });
 $(document).on('form-success', '[data-form="register"]', function(e, response) {
-	location = "index.php";
+	location = location;
 });
 
 function formatMoney(number) {
@@ -102,3 +102,7 @@ Handlebars.registerHelper('formatMoney', function(number) {
 function calculateDiscount(discountPrice, originalPrice) {
 	return Math.round(100 * (discountPrice - originalPrice) / originalPrice);
 }
+
+$(document).on('shown.bs.modal', function() {
+	$(this).find('[autofocus]').focus();
+});
