@@ -1,0 +1,9 @@
+#map-panel {
+    padding: 0px;
+}
+
+#map {
+    height: 300px;
+}
+
+/* we need to take care of padding */
