@@ -23,7 +23,7 @@ function initMap() {
 
 	_fitMapBounds();
 
-	function addItem(item){
+	function addItem(item) {
 		var discountPercentage = calculateDiscount(item.discount_price, item.original_price);
 
 		var link =
