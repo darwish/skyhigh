@@ -1,162 +1,102 @@
 [
   {
-    "Store": {
-      "ID": 3422423,
-      "Name": "Canadian Tire",
-      "Address": null,
-      "Longitude": 0.0,
-      "Latitude": 0.0
-    },
-    "Image": "http://n.dam-img.rfdcontent.com/offers/004/239/766/180x180_crop-center.jpg",
-    "Name": "T-Fal Avante Icon Toaster, 4-Slice",
-    "Description": "T-Fal Avante Icon Toaster features a revolutionary angled design. Extra wide and deep, self-adjusting slots allow even toasting of all kinds of bread. High-lift mechanism with new one-handed use feature enables easy removal of toast. Features touch pad buttons, 7 electronic variable browning controls, bagel and reheat functions. Slide out crumb tray for easy cleaning. Cancel button allows toast cycle to stop at any time. Brushed Stainless Steel finish. 1800 Watts of power. Capacity: 4 slice.",
-    "Url": "http://www.canadiantire.ca/en/pdp/t-fal-avante-icon-toaster-4-slice-0430896p.html#.VleZ8L-V6e0?icid=Flipp-Thu 2015-12-03 to Thu 2015-12-10 - 349/159 - marry madness (preview dec 1)-__POSTAL_CODE__",
-    "Category": "Appliances",
-    "Price": 74.99,
-    "Discount": 0.0
+    "shopReference": 3422423,
+    "image": "http://l.dam-img.rfdcontent.com/offers/004/239/766/180x180_crop-center.jpg",
+    "name": "T-Fal Avante Icon Toaster, 4-Slice",
+    "description": "T-Fal Avante Icon Toaster features a revolutionary angled design. Extra wide and deep, self-adjusting slots allow even toasting of all kinds of bread. High-lift mechanism with new one-handed use feature enables easy removal of toast. Features touch pad buttons, 7 electronic variable browning controls, bagel and reheat functions. Slide out crumb tray for easy cleaning. Cancel button allows toast cycle to stop at any time. Brushed Stainless Steel finish. 1800 Watts of power. Capacity: 4 slice.",
+    "url": "http://www.canadiantire.ca/en/pdp/t-fal-avante-icon-toaster-4-slice-0430896p.html#.VleZ8L-V6e0?icid=Flipp-Thu 2015-12-03 to Thu 2015-12-10 - 349/159 - marry madness (preview dec 1)-__POSTAL_CODE__",
+    "category": "Appliances",
+    "price": 74.99,
+    "discount": 0.0
   },
   {
-    "Store": {
-      "ID": 5872616,
-      "Name": "The Bay",
-      "Address": null,
-      "Longitude": 0.0,
-      "Latitude": 0.0
-    },
-    "Image": "http://w.dam-img.rfdcontent.com/offers/004/240/429/180x180_crop-center.jpg",
-    "Name": "Oster 2-Slice Toaster",
-    "Description": "Start your day with toast made your way. This 2-slice toaster is equipped to toast breads, bagels and more to your taste. Advanced toasting technology and settings from light to dark provide consistent results every time so that you can enjoy the perfect texture and shade of toast, waffle or English muffin. With the Oster brand, you can cook with passion and serve with pleasure.",
-    "Url": "http://www.anrdoezrs.net/click-749547-11174177?sid=flyers-d467&amp;url=http%3A%2F%2Fwww.thebay.com%2Fwebapp%2Fwcs%2Fstores%2Fservlet%2Fen%2Fthebay%2Fstainless-steel-2-slice-extra-wide-slot-toaster-0193-ssttrjb29033--24",
-    "Category": "Appliances",
-    "Price": 36.99,
-    "Discount": 0.0
+    "shopReference": 5872616,
+    "image": "http://r.dam-img.rfdcontent.com/offers/004/240/429/180x180_crop-center.jpg",
+    "name": "Oster 2-Slice Toaster",
+    "description": "Start your day with toast made your way. This 2-slice toaster is equipped to toast breads, bagels and more to your taste. Advanced toasting technology and settings from light to dark provide consistent results every time so that you can enjoy the perfect texture and shade of toast, waffle or English muffin. With the Oster brand, you can cook with passion and serve with pleasure.",
+    "url": "http://www.anrdoezrs.net/click-749547-11174177?sid=flyers-d467&amp;url=http%3A%2F%2Fwww.thebay.com%2Fwebapp%2Fwcs%2Fstores%2Fservlet%2Fen%2Fthebay%2Fstainless-steel-2-slice-extra-wide-slot-toaster-0193-ssttrjb29033--24",
+    "category": "Appliances",
+    "price": 36.99,
+    "discount": 0.0
   },
   {
-    "Store": {
-      "ID": 5873456,
-      "Name": "Home Outfitters",
-      "Address": null,
-      "Longitude": 0.0,
-      "Latitude": 0.0
-    },
-    "Image": "http://p.dam-img.rfdcontent.com/offers/004/241/079/180x180_crop-center.jpg",
-    "Name": "Oster Inspire Stainless Steel Toaster Oven ",
-    "Description": "Oster Inspire Stainless Steel Toaster Oven  - $94.99 ($35.00 off)",
-    "Url": "http://www.homeoutfitters.com/",
-    "Category": "Appliances",
-    "Price": 94.99,
-    "Discount": 0.0
+    "shopReference": 5873456,
+    "image": "http://f.dam-img.rfdcontent.com/offers/004/241/079/180x180_crop-center.jpg",
+    "name": "Oster Inspire Stainless Steel Toaster Oven ",
+    "description": "Oster Inspire Stainless Steel Toaster Oven  - $94.99 ($35.00 off)",
+    "url": "http://www.homeoutfitters.com/",
+    "category": "Appliances",
+    "price": 94.99,
+    "discount": 0.0
   },
   {
-    "Store": {
-      "ID": 3617116,
-      "Name": "Sears",
-      "Address": null,
-      "Longitude": 0.0,
-      "Latitude": 0.0
-    },
-    "Image": "http://k.dam-img.rfdcontent.com/offers/004/237/205/180x180_crop-center.jpg",
-    "Name": "Frigidaire Professional 6-Slice Convection Toaster Oven",
-    "Description": "The Frigidaire Professional 6-Slice Convection Toaster Oven has a sleek, modern stainless-steel exterior and offers many great features, including rapid-cooking infrared technology, eight preset cooking options, and an adjustable cooking rack. It will make a great addition to your kitchen, and you'll use it more than you think!",
-    "Url": "http://www.anrdoezrs.net/click-749547-10626158?sid=rfdcb-d387&amp;url=http%3A%2F%2Fwww.sears.ca%2Fproduct%2Ffrigidaire-professional-6-slice-convection-toaster-oven%2F611-000992586-FPCO06D7MS%3Fextid=affiliate_comj",
-    "Category": "Appliances",
-    "Price": 119.99,
-    "Discount": 0.0
+    "shopReference": 3617116,
+    "image": "http://r.dam-img.rfdcontent.com/offers/004/237/205/180x180_crop-center.jpg",
+    "name": "Frigidaire Professional 6-Slice Convection Toaster Oven",
+    "description": "The Frigidaire Professional 6-Slice Convection Toaster Oven has a sleek, modern stainless-steel exterior and offers many great features, including rapid-cooking infrared technology, eight preset cooking options, and an adjustable cooking rack. It will make a great addition to your kitchen, and you'll use it more than you think!",
+    "url": "http://www.anrdoezrs.net/click-749547-10626158?sid=rfdcb-d387&amp;url=http%3A%2F%2Fwww.sears.ca%2Fproduct%2Ffrigidaire-professional-6-slice-convection-toaster-oven%2F611-000992586-FPCO06D7MS%3Fextid=affiliate_comj",
+    "category": "Appliances",
+    "price": 119.99,
+    "discount": 0.0
   },
   {
-    "Store": {
-      "ID": 7099616,
-      "Name": "Walmart",
-      "Address": null,
-      "Longitude": 0.0,
-      "Latitude": 0.0
-    },
-    "Image": "http://k.dam-img.rfdcontent.com/offers/004/234/361/180x180_crop-center.jpg",
-    "Name": "Black & Decker 4-Slice Toaster",
-    "Description": "Centers bread for even toasting results.",
-    "Url": "http://click.linksynergy.com/deeplink?id=CAqD7bLWUPI&amp;mid=36751&amp;murl=http%3A%2F%2Fwww.walmart.ca%2Fen%2Fip%2Fblack-decker-4-slice-toaster%2F6000100602133&amp;u1=flyers-d450",
-    "Category": "Appliances",
-    "Price": 33.97,
-    "Discount": 0.0
+    "shopReference": 7099616,
+    "image": "http://x.dam-img.rfdcontent.com/offers/004/234/361/180x180_crop-center.jpg",
+    "name": "Black & Decker 4-Slice Toaster",
+    "description": "Centers bread for even toasting results.",
+    "url": "http://click.linksynergy.com/deeplink?id=CAqD7bLWUPI&amp;mid=36751&amp;murl=http%3A%2F%2Fwww.walmart.ca%2Fen%2Fip%2Fblack-decker-4-slice-toaster%2F6000100602133&amp;u1=flyers-d450",
+    "category": "Appliances",
+    "price": 33.97,
+    "discount": 0.0
   },
   {
-    "Store": {
-      "ID": 606344,
-      "Name": "Factory Direct",
-      "Address": null,
-      "Longitude": 0.0,
-      "Latitude": 0.0
-    },
-    "Image": "http://a.dam-img.rfdcontent.com/offers/004/234/931/180x180_crop-center.jpg",
-    "Name": "Hamilton Beach Digital Stainless Steel 4 Slice Toaster",
-    "Description": "Hamilton Beach Digital Stainless Steel 4 Slice Toaster - $35.00",
-    "Url": "http://www.factorydirect.ca/Canada-/Home_Office_And_Garden/Kitchen_And_Appliances/Toasters_Ovens/HB4502/24502_Hamilton_Beach_Digital_S_S_4_Slice_Toaster_040094245024/0",
-    "Category": "Appliances",
-    "Price": 35.00,
-    "Discount": 0.0
+    "shopReference": 606344,
+    "image": "http://z.dam-img.rfdcontent.com/offers/004/234/931/180x180_crop-center.jpg",
+    "name": "Hamilton Beach Digital Stainless Steel 4 Slice Toaster",
+    "description": "Hamilton Beach Digital Stainless Steel 4 Slice Toaster - $35.00",
+    "url": "http://www.factorydirect.ca/Canada-/Home_Office_And_Garden/Kitchen_And_Appliances/Toasters_Ovens/HB4502/24502_Hamilton_Beach_Digital_S_S_4_Slice_Toaster_040094245024/0",
+    "category": "Appliances",
+    "price": 35.00,
+    "discount": 0.0
   },
   {
-    "Store": {
-      "ID": 606344,
-      "Name": "Factory Direct",
-      "Address": null,
-      "Longitude": 0.0,
-      "Latitude": 0.0
-    },
-    "Image": "http://z.dam-img.rfdcontent.com/offers/004/234/976/180x180_crop-center.jpg",
-    "Name": "Panasonic Nb-G110p Flashxpress Toaster Oven",
-    "Description": "Double infrared heating.",
-    "Url": "http://www.factorydirect.ca/Canada-/Home_Office_And_Garden/Kitchen_And_Appliances/Toasters_Ovens/PA0110/NB-G110P_Panasonic_Nb-G110p_Flashxpress_Toaster_Oven_W_Double_Ir_Heat_885170092761/0",
-    "Category": "Appliances",
-    "Price": 99.99,
-    "Discount": 0.0
+    "shopReference": 606344,
+    "image": "http://o.dam-img.rfdcontent.com/offers/004/234/976/180x180_crop-center.jpg",
+    "name": "Panasonic Nb-G110p Flashxpress Toaster Oven",
+    "description": "Double infrared heating.",
+    "url": "http://www.factorydirect.ca/Canada-/Home_Office_And_Garden/Kitchen_And_Appliances/Toasters_Ovens/PA0110/NB-G110P_Panasonic_Nb-G110p_Flashxpress_Toaster_Oven_W_Double_Ir_Heat_885170092761/0",
+    "category": "Appliances",
+    "price": 99.99,
+    "discount": 0.0
   },
   {
-    "Store": {
-      "ID": 899149,
-      "Name": "Kitchen Stuff Plus",
-      "Address": null,
-      "Longitude": 0.0,
-      "Latitude": 0.0
-    },
-    "Image": "http://i.dam-img.rfdcontent.com/offers/004/223/295/180x180_crop-center.jpg",
-    "Name": "Oster Wide-Slot Toaster (Brushed St/Steel)",
-    "Description": "An essential in any kitchen. This reliable toaster comes with all the power you would expect from an Oster toaster. The beautifully designed product features a stainless steel exterior making this a centerpiece for any countertop. This easy to use product delivers perfect toast every time, making your mornings a little simpler.",
-    "Url": "http://www.kitchenstuffplus.com/oster-wide-slot-toaster-brushed-st-steel-1?",
-    "Category": "Appliances",
-    "Price": 29.99,
-    "Discount": 0.0
+    "shopReference": 899149,
+    "image": "http://n.dam-img.rfdcontent.com/offers/004/223/295/180x180_crop-center.jpg",
+    "name": "Oster Wide-Slot Toaster (Brushed St/Steel)",
+    "description": "An essential in any kitchen. This reliable toaster comes with all the power you would expect from an Oster toaster. The beautifully designed product features a stainless steel exterior making this a centerpiece for any countertop. This easy to use product delivers perfect toast every time, making your mornings a little simpler.",
+    "url": "http://www.kitchenstuffplus.com/oster-wide-slot-toaster-brushed-st-steel-1?",
+    "category": "Appliances",
+    "price": 29.99,
+    "discount": 0.0
   },
   {
-    "Store": {
-      "ID": 8116751,
-      "Name": "Bed Bath And Beyond",
-      "Address": null,
-      "Longitude": 0.0,
-      "Latitude": 0.0
-    },
-    "Image": "http://b.dam-img.rfdcontent.com/offers/003/676/946/180x180_crop-center.jpg",
-    "Name": "Fagor Dual Technology Digital Toaster Oven",
-    "Description": "Full size oven performance with easy to use dials, a digital control panel, 10 pre-set cooking programs and ample space.Comes with a baking pan, cookie sheet, wire rack, crumb tray and rotisserie set and user manual with 15 recipes.Includes a preset timer, that can also be set from 1 minute to 120 minutes in one minute increment.Function and temperature adjust dials.Features blue LCD display.Designed with quartz and halogen heating lamps.PFOA free non-stick coating.1450 watts of power.Temperature range from 150 F to 450 F.Toaster oven measures 18.42\"L x 15.2\"W x 12.12\"H.ETL listed.",
-    "Url": "http://www.bedbathandbeyond.ca/store/product/fagor-dual-technology-digital-toaster-oven/1042046158?categoryId=20009",
-    "Category": "Appliances",
-    "Price": 129.99,
-    "Discount": 0.0
+    "shopReference": 8116751,
+    "image": "http://q.dam-img.rfdcontent.com/offers/003/676/946/180x180_crop-center.jpg",
+    "name": "Fagor Dual Technology Digital Toaster Oven",
+    "description": "Full size oven performance with easy to use dials, a digital control panel, 10 pre-set cooking programs and ample space.Comes with a baking pan, cookie sheet, wire rack, crumb tray and rotisserie set and user manual with 15 recipes.Includes a preset timer, that can also be set from 1 minute to 120 minutes in one minute increment.Function and temperature adjust dials.Features blue LCD display.Designed with quartz and halogen heating lamps.PFOA free non-stick coating.1450 watts of power.Temperature range from 150 F to 450 F.Toaster oven measures 18.42\"L x 15.2\"W x 12.12\"H.ETL listed.",
+    "url": "http://www.bedbathandbeyond.ca/store/product/fagor-dual-technology-digital-toaster-oven/1042046158?categoryId=20009",
+    "category": "Appliances",
+    "price": 129.99,
+    "discount": 0.0
   },
   {
-    "Store": {
-      "ID": 8116751,
-      "Name": "Bed Bath And Beyond",
-      "Address": null,
-      "Longitude": 0.0,
-      "Latitude": 0.0
-    },
-    "Image": "http://w.dam-img.rfdcontent.com/offers/003/174/859/180x180_crop-center.jpg",
-    "Name": "Florida Marlins Toaster",
-    "Description": "Automatic/manual switch off\r\n\t2-slice capacity\r\n\t700-watt maximum\r\n\tWipe clean\r\n\tMeasures 12\" L x 7\" W x 8\" H\r\n\tWeighs 9 lb.\r\n\tUL listed\r\n\tOfficially licensed by MLB\r\n\t1-year manufacturer's warranty\r\n\tImported",
-    "Url": "http://www.bedbathandbeyond.ca/store/product/florida-marlins-toaster/1018504359?categoryId=20009",
-    "Category": "Appliances",
-    "Price": 16.99,
-    "Discount": 0.0
+    "shopReference": 8116751,
+    "image": "http://b.dam-img.rfdcontent.com/offers/003/174/859/180x180_crop-center.jpg",
+    "name": "Florida Marlins Toaster",
+    "description": "Automatic/manual switch off\r\n\t2-slice capacity\r\n\t700-watt maximum\r\n\tWipe clean\r\n\tMeasures 12\" L x 7\" W x 8\" H\r\n\tWeighs 9 lb.\r\n\tUL listed\r\n\tOfficially licensed by MLB\r\n\t1-year manufacturer's warranty\r\n\tImported",
+    "url": "http://www.bedbathandbeyond.ca/store/product/florida-marlins-toaster/1018504359?categoryId=20009",
+    "category": "Appliances",
+    "price": 16.99,
+    "discount": 0.0
   }
 ]

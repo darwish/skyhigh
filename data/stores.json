@@ -1,0 +1,58 @@
+[
+  {
+    "reference": 3422423,
+    "name": "Canadian Tire",
+    "address": null,
+    "longitude": 0.0,
+    "latitude": 0.0
+  },
+  {
+    "reference": 5872616,
+    "name": "The Bay",
+    "address": null,
+    "longitude": 0.0,
+    "latitude": 0.0
+  },
+  {
+    "reference": 5873456,
+    "name": "Home Outfitters",
+    "address": null,
+    "longitude": 0.0,
+    "latitude": 0.0
+  },
+  {
+    "reference": 3617116,
+    "name": "Sears",
+    "address": null,
+    "longitude": 0.0,
+    "latitude": 0.0
+  },
+  {
+    "reference": 7099616,
+    "name": "Walmart",
+    "address": null,
+    "longitude": 0.0,
+    "latitude": 0.0
+  },
+  {
+    "reference": 606344,
+    "name": "Factory Direct",
+    "address": null,
+    "longitude": 0.0,
+    "latitude": 0.0
+  },
+  {
+    "reference": 899149,
+    "name": "Kitchen Stuff Plus",
+    "address": null,
+    "longitude": 0.0,
+    "latitude": 0.0
+  },
+  {
+    "reference": 8116751,
+    "name": "Bed Bath And Beyond",
+    "address": null,
+    "longitude": 0.0,
+    "latitude": 0.0
+  }
+]
