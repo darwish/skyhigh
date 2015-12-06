@@ -15,7 +15,7 @@ function storeCategory($name, \RedBeanPHP\OODBBean $parent = null) {
 	$category = R::dispense("category");
 	$category->name = $name;
 	if ($parent) {
-		$category->parent = $parent;
+		$category->category = $parent;
 	}
 	R::store($category);
 	return $category;
