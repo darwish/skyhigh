@@ -72,7 +72,7 @@ void DownloadItems(string query)
 		return new Item()
 		{
 			title = title.Substring(0, title.IndexOf("$")),
-			price = price,
+			originalPrice = price,
 			image = doc2.DocumentNode.SelectSingleNode("//*[@id='side_block']/a/img").Attributes["src"].Value,
 			description = doc2.DocumentNode.SelectSingleNode("//*[@id='description']").InnerText.Trim(),
 			url =  doc2.DocumentNode.SelectSingleNode("//*[@id='side_block']/a").Attributes["href"].Value,
@@ -85,7 +85,7 @@ void DownloadItems(string query)
 	File.WriteAllText(storesPath, JsonConvert.SerializeObject(stores.Values, Newtonsoft.Json.Formatting.Indented));
 	
 	string json = JsonConvert.SerializeObject(items, Newtonsoft.Json.Formatting.Indented);
-	File.WriteAllText(@"E:\Users\Michael\Documents\GitHub\skyhigh\data\" + query + ".json", json);
+	File.WriteAllText(@"E:\Users\Michael\Documents\GitHub\skyhigh\data\items\" + query + ".json", json);
 	Console.WriteLine("\n");
 	//Console.WriteLine(json);
 }
@@ -99,7 +99,7 @@ class Item
 	public string description;
 	public string url;
 	public string category;
-	public decimal price;
+	public decimal originalPrice;
 	public decimal discountPrice;
 }
 

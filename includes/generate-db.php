@@ -4,7 +4,7 @@ function generateDB() {
 	$storeData = json_decode(file_get_contents(__DIR__ . '/../data/stores.json'), true);
 
 	$categories = R::findAll("category");
-
+	
 	foreach ($storeData as $store) {
 		$store['_type'] = 'shop';
 		$storeBean = R::dispense($store);
@@ -23,8 +23,9 @@ function generateDB() {
 }
 
 function addItemToDB($filename, $categories) {
+	
 	$itemData = json_decode(file_get_contents(__DIR__ . "/../data/items/$filename"), true);
-
+	
 	$itemData = array_map(function($x) use($categories) {
 		$x['_type'] = 'item';
 		$x['shop'] = R::findOne('shop', 'reference = ?', [$x['shopReference']]);

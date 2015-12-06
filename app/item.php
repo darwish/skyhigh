@@ -108,7 +108,7 @@ $pageTitle = "Purchase Item";
 		$('.item-container').append(item);
 
 		calculateDistance(data.shop.latitude, data.shop.longitude, function(distance) {
-			item.find('.distance').text(niceRound(distance));
+			item.find('.distance').text(niceRound(distance).toLocaleString());
 		});
 
 		<?php if (!empty($_SESSION['pay'])): ?>

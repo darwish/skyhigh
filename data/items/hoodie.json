@@ -6,7 +6,7 @@
     "description": "Denver Hayes Sherpa-Lined Hoodie - $41.99 (40% off)",
     "url": "http://www.pntrs.com/t/2-152012-58025-11985?url=http%3A%2F%2Fwww.marks.com%2F&amp;website=133845&amp;sid=flyers",
     "category": "Men's Apparel",
-    "price": 41.99,
+    "originalPrice": 41.99,
     "discountPrice": 26.03
   },
   {
@@ -16,7 +16,7 @@
     "description": "Congratulations! You've found the snowflake! Take an Additional 25% Off. Faux-leather details and a vertical logo give signature, on-trend street style to this sporty hoodie.",
     "url": "http://canada.armaniexchange.com/product/faux-leather+logo+hoodie.do?sortby=&amp;page=15",
     "category": "Men's Apparel",
-    "price": 55.00,
+    "originalPrice": 55.00,
     "discountPrice": 48.95
   },
   {
@@ -26,7 +26,7 @@
     "description": "Congratulations! You've found the snowflake! Take an Additional 25% Off. Our classic logo gets an update in this unique foil printing with a distressed feel.",
     "url": "http://canada.armaniexchange.com/product/foil-print+pullover+hoodie.do?sortby=&amp;page=17",
     "category": "Men's Apparel",
-    "price": 70.00,
+    "originalPrice": 70.00,
     "discountPrice": 63.00
   },
   {
@@ -36,7 +36,7 @@
     "description": "Our soft marled hoodie features a pop of color at the hood, hem and cuffs for added visual interest.",
     "url": "http://canada.armaniexchange.com/product/heathered+full-zip+hoodie.do?sortby=&amp;page=17",
     "category": "Men's Apparel",
-    "price": 70.00,
+    "originalPrice": 70.00,
     "discountPrice": 43.40
   },
   {
@@ -46,7 +46,7 @@
     "description": "Mesh insets and a colorblock motif update the classic hoodie for a sporty, street style feel.",
     "url": "http://canada.armaniexchange.com/product/colorblock+mesh+hoodie.do?sortby=&amp;page=18",
     "category": "Men's Apparel",
-    "price": 85.00,
+    "originalPrice": 85.00,
     "discountPrice": 56.95
   },
   {
@@ -56,7 +56,7 @@
     "description": "ONLINE EXCLUSIVE. Tonal, embroidered logos give low-key signature style to this sporty hoodie.",
     "url": "http://canada.armaniexchange.com/product/signature+a%7Cx+hoodie.do?sortby=&amp;page=20",
     "category": "Men's Apparel",
-    "price": 44.75,
+    "originalPrice": 44.75,
     "discountPrice": 38.93
   },
   {
@@ -66,7 +66,7 @@
     "description": "Faux-fur lining adds an extra layer of comfort and warmth to this hoodie, featuring a two-way zipper, split kangaroo pocket and logo detail.",
     "url": "http://canada.armaniexchange.com/product/plush-lined+hoodie.do?sortby=&amp;page=24",
     "category": "Men's Apparel",
-    "price": 95.00,
+    "originalPrice": 95.00,
     "discountPrice": 57.95
   },
   {
@@ -76,7 +76,7 @@
     "description": "Heather grey style made of 80% cotton/20% polyester fleece.All other styles made of 70% cotton/30% polyester fleeceTrim and lining made of 100% cotton jerseyRibbed sleeve cuffs and hem made of 100% cottonFront zipper closure and pocketsGraphic at either left chest, full chest or right sleeve based on stylePre-washed for a gentle feel and to reduce shrinkageImported.",
     "url": "http://www.childrensplace.com/shop/ca/p/kids-clearance-clothing-canada/boys-clothing/Full-zip-Athlete-Hoodie-2044673-HE",
     "category": "Children's Apparel",
-    "price": 19.50,
+    "originalPrice": 19.50,
     "discountPrice": 13.84
   },
   {
@@ -86,7 +86,7 @@
     "description": "Made of 72% cotton/28% polyester fleece, sueded for softness .Rib-knit hem and sleeve cuffs made of 100% cottonBack neck binding and hood lining made of 100% cotton jerseyFull zipper closureGraphic screen print at either left chest or center frontFront pocketsPre-washed for a gentle feel and to reduce shrinkageImported.",
     "url": "http://www.childrensplace.com/shop/ca/p/kids-clearance-clothing-canada/toddler-boy-clothes/Full-zip-Athlete-Hoodie-2044694-HE",
     "category": "Children's Apparel",
-    "price": 14.49,
+    "originalPrice": 14.49,
     "discountPrice": 11.30
   },
   {
@@ -96,7 +96,7 @@
     "description": "An urban favourite, this hooded vegan leather jacket is bascially your favourite hoodie, only warmer.- Outer: 100% polyurethane-Lining: 100% polyester- Wipe with a damp cloth as necessary - Hang to dryDo not bleachModel wears size: smallModel wears size: small.",
     "url": "http://suzyshier.com/no-marketing-info-700959.html",
     "category": "Women's Apparel",
-    "price": 28.95,
+    "originalPrice": 28.95,
     "discountPrice": 22.00
   },
   {
@@ -106,7 +106,7 @@
     "description": "Front zip closure with hood.80% viscose 20% nylon.Model wear size: small.",
     "url": "http://suzyshier.com/0239-61321604-long-hoodie-sweater.html",
     "category": "Women's Apparel",
-    "price": 15.95,
+    "originalPrice": 15.95,
     "discountPrice": 14.99
   },
   {
@@ -116,7 +116,7 @@
     "description": "60% cotton, 40% polyester.",
     "url": "http://www.hollisterco.ca/shop/ca/girls-clearance/embroidered-logo-graphic-hoodie-5267072_06",
     "category": "Women's Apparel",
-    "price": 19.32,
+    "originalPrice": 19.32,
     "discountPrice": 17.00
   }
 ]

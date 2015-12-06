@@ -133,17 +133,35 @@ function getLocation(callback) {
 	});
 }
 
+window.calculate_distance_queue = [];
 function calculateDistance(lat, lon, callback) {
 	if (!window.user_position) {
-		getLocation(_calculateDistance);
+		if (!window.calculating_user_position) {
+			window.calculating_user_position = true;
+			getLocation(_calculateDistances);
+		}
+
+		window.calculate_distance_queue.push({
+			lat: lat,
+			lon: lon,
+			callback: callback
+		});
 	} else {
-		_calculateDistance();
+		_calculateDistance(callback);
 	}
 
-	function _calculateDistance() {
+	function _calculateDistances() {
+		for (var i = 0; i < window.calculate_distance_queue.length; i++) {
+			var q = window.calculate_distance_queue[i];
+			_calculateDistance(q.lat, q.lon, q.callback);
+		}
+		window.calculate_distance_queue = [];
+	}
+
+	function _calculateDistance(_lat, _lon, _callback) {
 		var coords = window.user_position.coords;
-		var distance = getDistanceFromLatLonInKm(lat, lon, coords.latitude, coords.longitude);
-		callback(distance);
+		var distance = getDistanceFromLatLonInKm(_lat, _lon, coords.latitude, coords.longitude);
+		_callback(distance);
 	}
 }
 

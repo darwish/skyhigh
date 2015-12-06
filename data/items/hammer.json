@@ -6,7 +6,7 @@
     "description": "Get grand piano sound from a compact digital player. This Casio digital piano boasts an 88-key scaled hammer action keyboard with three levels of touch response so you can play more expressively, with a wider range of dynamics. From rock to pop to bossa nova, this keyboard provides the space and flexibility you need to master any genre of music.",
     "url": "http://www.bestbuy.ca/en-ca/product/casio-casio-88-key-digital-keyboard-cdp130csbb-cdp130csbb/10384725.aspx?",
     "category": "Other",
-    "price": 399.99,
+    "originalPrice": 399.99,
     "discountPrice": 363.99
   },
   {
@@ -16,7 +16,7 @@
     "description": "This combo kit includes a Hammer drill and impact driver that feature the Dewalt brushless motor that delivers up to 57-percent more run time over brushed. Both tools feature LED lights with 20 second trigger release delay providing increased visibility in dark or confined spaces. Backed by a Dewalt 3 year limited warranty for added peace of mind.",
     "url": "https://s7d2.scene7.com/is/image/homedepotcanada/p_1000657941.jpg?$plpProduct$",
     "category": "Home Improvement & Tools",
-    "price": 299.00,
+    "originalPrice": 299.00,
     "discountPrice": 212.29
   },
   {
@@ -26,7 +26,7 @@
     "description": "Makita's 4-Piece Combo Kit includes core tools to handle most projects. It includes a 1/2 In. Cordless Hammer Driver Drill; 1/4 In. Cordless Impact Driver; Cordless Reciprocating Saw and 6-1/2 In. Cordless Circular Saw. Lithium-Ion batteries ensure both power and performance to maximize your productivity. Add versatility, power and reliability to your tool box.",
     "url": "http://www.dpbolvw.net/click-749547-11365101?sid=flyers-d218&amp;url=https%3A%2F%2Fwww.homedepot.ca%2Fen%2Fhome%2Fp.cordless-combo-kit--18-volt.1000525631.html",
     "category": "Home Improvement & Tools",
-    "price": 499.00,
+    "originalPrice": 499.00,
     "discountPrice": 304.39
   },
   {
@@ -36,7 +36,7 @@
     "description": "The RIDGID 1/2 In. VRS Hammer Drill features a heavy-duty 1/2 In. keyed chuck and all metal design for durability and positive bit retention; a durable 7.5 AMP motor with hardened steel gears for long life; automatic clutch to reduce the stress load on motor and gearing, and a dual speed/torque gearbox that allows the user to set the drilling speed to match the application. An ergonomic soft grip handle also provides comfort and decreased vibration, while the 360 degree auxiliary handle assembly with depth-stop rod provides precise control of drilling depth. Also includes heavy-duty contractor bag.",
     "url": "http://www.kqzyfj.com/click-749547-11365101?sid=flyers-d218&amp;url=https%3A%2F%2Fwww.homedepot.ca%2Fen%2Fhome%2Fp.12-in-vrs-hammer-drill.1000475744.html",
     "category": "Home Improvement & Tools",
-    "price": 99.00,
+    "originalPrice": 99.00,
     "discountPrice": 63.36
   },
   {
@@ -46,7 +46,7 @@
     "description": "HDS181: Durashield housing - constructed to withstand jobsite conditions.",
     "url": "http://www.tkqlhce.com/click-749547-11662090?sid=flyers-d667&amp;url=https%3A%2F%2Fwww.lowes.ca%2Fcombo-kits%2Fbosch-2-tool-18-volt-lithium-ion-li-ion-cordless-12-in-hammer-drilldriver-and-14-in-hex-impact-driver-combo-kit_g2603893.html%3FSearchTerm%3D691843",
     "category": "Home Improvement & Tools",
-    "price": 319.20,
+    "originalPrice": 319.20,
     "discountPrice": 277.70
   },
   {
@@ -56,7 +56,7 @@
     "description": "Powered by lithium-ion slide-type battery technology for fade-free power, less weight, and three times the total battery life of traditional batteries.",
     "url": "http://www.kqzyfj.com/click-749547-11662090?sid=flyers-d667&amp;url=https%3A%2F%2Fwww.lowes.ca%2Fdrills%2Fhitachi-dv18dsdl-18-volt-lithium-ion-12-in-2-speed-cordless-hammer-drill_g1476856.html%3FSearchTerm%3D367049",
     "category": "Home Improvement & Tools",
-    "price": 183.20,
+    "originalPrice": 183.20,
     "discountPrice": 111.75
   },
   {
@@ -66,7 +66,7 @@
     "description": "Designed to power out dirt and odours. Special agents in the detergent trap the soil in the wash water, so it rinses away and doesnâ€™t redeposit on your clothes. This detergent is specially formulated for todayâ€™s regular washers and technologically advanced and environmentally friendly High Efficiency (HE) washers. Keeps your laundry smelling fresh and clean.",
     "url": "http://click.linksynergy.com/deeplink?id=CAqD7bLWUPI&amp;mid=36751&amp;murl=http%3A%2F%2Fwww.walmart.ca%2Fen%2Fip%2Farm-hammer-clean-fresh-scent%2F6000083830099&amp;u1=flyers-d450",
     "category": "Other",
-    "price": 9.97,
+    "originalPrice": 9.97,
     "discountPrice": 7.48
   },
   {
@@ -76,7 +76,7 @@
     "description": "Includes 2 replaceable AA batteries.",
     "url": "http://www.factorydirect.ca/Canada-/Hba/Soap_Shower_Gel/Toothbrushes/AH2050/_Arm___Hammer_Spinbrush_Proclean_Toothbrush-Assorted_766878001524/0",
     "category": "Beauty Supplies & Personal Care",
-    "price": 6.99,
+    "originalPrice": 6.99,
     "discountPrice": 6.50
   },
   {
@@ -86,7 +86,7 @@
     "description": "Patented 3-component anti-vibration system consisting of red nylon, a rubber grip and an aluminum alloy core",
     "url": "http://www.princessauto.com/en/detail/3-lb-club-hammer/A-p8613796e",
     "category": "Home Improvement & Tools",
-    "price": 19.99,
+    "originalPrice": 19.99,
     "discountPrice": 18.39
   },
   {
@@ -96,7 +96,7 @@
     "description": "Patented 3-component anti-vibration system consisting of red nylon, a rubber grip and an aluminum alloy core",
     "url": "http://www.princessauto.com/en/detail/36-oz-machinist-hammer/A-p8613770e",
     "category": "Home Improvement & Tools",
-    "price": 17.99,
+    "originalPrice": 17.99,
     "discountPrice": 16.37
   },
   {
@@ -106,7 +106,7 @@
     "description": "Carbon steel",
     "url": "http://www.princessauto.com/en/detail/12-oz-ball-pein-hammer/A-p8002839e",
     "category": "Home Improvement & Tools",
-    "price": 3.49,
+    "originalPrice": 3.49,
     "discountPrice": 3.11
   },
   {
@@ -116,7 +116,7 @@
     "description": "Knurled handle for secure grip. 11-7/8 in. long. 15/16 in. opening. Simply position and strike with a hammer.",
     "url": "http://www.princessauto.com/en/detail/powerfist-15-16-in-tie-rod-ball-joint-separator/A-p8051831e",
     "category": "Other",
-    "price": 4.99,
+    "originalPrice": 4.99,
     "discountPrice": 4.64
   },
   {
@@ -126,7 +126,7 @@
     "description": "Cone shaped nose with a sharp, flattened point and dual beveled tail.",
     "url": "http://www.princessauto.com/en/detail/powerfist-spring-handle-chipping-hammer/A-p0140806e",
     "category": "Home Improvement & Tools",
-    "price": 3.99,
+    "originalPrice": 3.99,
     "discountPrice": 3.59
   },
   {
@@ -136,7 +136,7 @@
     "description": "Put birds in the bag all year long with the Franchi Intensity Semi-Auto Shotgun. Combining a design built for easy handling with the time tested Inertia Driven operating system, the Intensity handles like a smaller gauge gun. Delivering the performance you want in any weather conditions, this well balanced shotgun combines a tough camo synthetic stock and forend with a hammer forged, vent rib steel barrel. Clean, reliable, and adjustment-free, the Inertia Driven system improves cycling speed, reliability, and the ability to cycle loads as light as 1-1/8 oz. up to 3-1/2\" magnums. This system utilizes basic physics to deliver amazing reliability, employing nothing more than a bolt body, inertia spring, and rotating bolt head to quickly and consistently fire shot after shot for years. Comes with red bar fiber optic front sight, IC, M, F choke tubes, and wrench.",
     "url": "http://redirectingat.com?id=2927x594702&amp;xs=1&amp;url=http%3A%2F%2Fbasspro.com%2FFranchi-Intensity-Shotgun-Realtree-MAX4%2Fproduct%2F1401080851078%2F",
     "category": "Equipment",
-    "price": 1299.97,
+    "originalPrice": 1299.97,
     "discountPrice": 779.98
   },
   {
@@ -146,7 +146,7 @@
     "description": "The Henry Big Boy Rifle is perfect for fans of our nation's Wild West era and big-game hunters. Hearkening back to the original Henry rifle of 1860, this big, brutal, beautiful lever action rifle features a distinctive 20\" octagon barrel, straight-grip American walnut stock with brass buttplate and brass barrel band. The blued steel barrel is matched with a solid top brass receiver with side ejection. Subtle, hand painted detailing makes each unit truly one of a kind. The Big Boy rifle features a hammer safety andâ€”for another 19th century touchâ€”a fully adjustable Marble semi-buckhorn rear sight with white diamond insert and brass beaded front sight. The rifleâ€™s tubular magazine can pack ten powerful .45 bruisers. Made in USA.",
     "url": "http://redirectingat.com?id=2927x594702&amp;xs=1&amp;url=http%3A%2F%2Fbasspro.com%2FHenry-Big-Boy-Rifle%2Fproduct%2F10218078%2F",
     "category": "Equipment",
-    "price": 929.97,
+    "originalPrice": 929.97,
     "discountPrice": 734.68
   }
 ]
