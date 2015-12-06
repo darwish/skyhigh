@@ -198,3 +198,9 @@ $(document).on('click', '.map-overlay', function() {
 	window.map.invalidateSize(true); // Yay, globals!
 	setTimeout(fitMapBounds, 500);
 });
+
+$(document).on('click', '.store-info', function(ev){
+	$('#store-location-modal').modal('show');
+	$('#mapframe').prop("src", "singlemap.php?id=28");
+	return false
+});
