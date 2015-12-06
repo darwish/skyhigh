@@ -7,6 +7,7 @@
 
 	<script src="js/vendor/bootstrap.min.js"></script>
 	<script src="js/vendor/jquery.growl.js"></script>
+	<script src="https://www.simplify.com/commerce/simplify.pay.js"></script>
 
 	<script src="js/plugins.js"></script>
 	<script src="js/main.js"></script>
