@@ -5,29 +5,18 @@
     "Men's Apparel",
     "Women's Apparel",
     "Men's Shoes",
-    "Women's Shoes",
-    "Hudson's Bay",
-    "Mark's",
-    "Sears",
-    "Walmart"
+    "Women's Shoes"
   ],
   "Automotive": [
     "Auto Parts & Accessories",
     "Auto Services",
     "Motor Vehicles",
-    "Other",
-    "Canadian Tire",
-    "Princess Auto"
+    "Other"
   ],
   "Beauty & Wellness": [
     "Beauty Supplies & Personal Care",
     "Salons & Spas",
-    "Other",
-    "Hudson's Bay",
-    "London Drugs",
-    "Rexall",
-    "Sears",
-    "Walmart"
+    "Other"
   ],
   "Computers & Electronics": [
     "Cameras",
@@ -38,52 +27,24 @@
     "Telecom",
     "Televisions",
     "Video Games",
-    "Other",
-    "Best Buy",
-    "EB Games",
-    "NCIX",
-    "Staples",
-    "The Source",
-    "Tiger Direct"
+    "Other"
   ],
   "Entertainment": [
     "Books, Music, Movies, Magazines",
     "Events & Attractions",
     "Video Games",
-    "Other",
-    "Best Buy",
-    "Walmart"
-  ],
-  "Financial Services": [
-    "Banking & Investing",
-    "Credit Cards",
-    "Financial Tools",
-    "Insurance",
-    "Mortgages & Loans",
     "Other"
-  ],
-  "Groceries": [
-    "See all Groceries deals",
-    "Costco",
-    "Real Canadian Superstore",
-    "Walmart"
   ],
   "Home & Garden": [
     "Appliances",
     "Furniture",
-    "Home Décor",
+    "Home Decor",
     "Home Improvement & Tools",
     "Home Services & Repairs",
     "Office Supplies",
     "Outdoors & Patio",
     "Pets",
-    "Other",
-    "Canadian Tire",
-    "Home Hardware",
-    "Hudson's Bay",
-    "JYSK",
-    "RONA",
-    "Walmart"
+    "Other"
   ],
   "Kids & Babies": [
     "Baby Apparel",
@@ -91,15 +52,6 @@
     "Children's Apparel",
     "School Supplies",
     "Toys & Games",
-    "Other",
-    "Sears",
-    "Toys R Us",
-    "Walmart"
-  ],
-  "Restaurants": [
-    "Coffee & Desserts",
-    "Fast Food",
-    "Restaurants & Bars",
     "Other"
   ],
   "Small Business": [
@@ -112,18 +64,6 @@
     "Men's Clothing",
     "Equipment",
     "Gyms & Related Services",
-    "Other",
-    "Canadian Tire",
-    "Sears",
-    "Walmart"
-  ],
-  "Travel": [
-    "Car Rentals",
-    "Events & Attractions",
-    "Flights",
-    "Hotels",
-    "Rail & Bus",
-    "Vacations & Cruises",
     "Other"
   ]
 }
