@@ -1,3 +1,19 @@
+/* =============== HOME PAGE =============== */
+.category-row {
+	margin-bottom: 20px;
+}
+
+.category-parent {
+	font-size: 1.3em;
+	line-height: 1.5;
+}
+
+.category-child {
+	margin-left: 5px;
+	font-size: 0.9em;
+	line-height: 1.5;
+}
+
 /* =============== SEARCH RESULTS PAGE =============== */
 
 .search-results-meta {

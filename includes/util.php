@@ -92,7 +92,7 @@ function partial($name, array $__args = []) {
 	require __DIR__ . "/templates/partials/$name.php";
 }
 
-function search($query, $page = 1) {
+function search($query, $category_id = null, $page = 1) {
 	// Fake results for now
 	$results = fakeItems();
 
@@ -120,6 +120,14 @@ function findItem($item_id) {
 
 function findPurchase($item_id, $user_id) {
 	return R::findOne("purchase", "item_id = ? AND user_id = ?", [$item_id, $user_id]);
+}
+
+function findParentCategories() {
+	return R::findAll("category", "category_id IS NULL");
+}
+
+function findChildCategories($parent) {
+	return R::find("category", "category_id = ?", [$parent->id]);
 }
 
 function fakeItems() {
