@@ -1,7 +1,11 @@
-
-<div class='row'>
-	<div id='map'></div>
-</div>
+<div class="container fill">
+	<div class="panel panel-default" style="height:500px">
+	<div class="panel-heading">Map</div>
+		<div class="panel-body">
+			<div id="map" style="height:500px"></div>
+		</div>
+	</div>
+ </div>
 
 
 	<script>
@@ -11,7 +15,7 @@
 	
 	L.mapbox.accessToken = 'pk.eyJ1IjoiY3JvY29kb3lsZSIsImEiOiJjaWhpZzRlY2MwbXFqdGNsenRqZmxqMHBrIn0.7yc8ndkeNHCD1TxhFzwe6w';
 	var map = L.mapbox.map('map', 'mapbox.dark')
-		.setView([mapLat, mapLon], 9);
+		.setView([mapLat, mapLon], 20);
 		
 		
 	var dealPoints = new Array();
@@ -26,10 +30,11 @@
 		}
 	}
 	
-	for (deal in dealPoints){
-		$( "div.log" ).html(deal.lat);
-
-		//L.marker([deal.lat, deal.lon]).addTo(map);
+	for (i=0; i< dealPoints.length; i++){
+		//$( "div.log" ).html(deal.lat);
+		
+		mark = L.marker([dealPoints[i].lat, dealPoints[i].lon]).addTo(map);
+		mark.bindPopup("THIS IS AN ITEM").openPopup();
 	}
 	
 	
