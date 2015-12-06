@@ -82,6 +82,10 @@
 	font-size: 3em;
 }
 
+.result-item .original-price-text {
+	text-align: center;
+}
+
 @media (max-width: 767px) {
 	.result-item .details {
 		clear: both;
@@ -175,6 +179,10 @@
 	font-size: 3em;
 }
 
+.purchase-item .original-price-text {
+	text-align: center;
+}
+
 .purchase-item .pay-buttons {
 	float: right;
 	width: 250px;
@@ -227,11 +235,4 @@
 	line-height: 1;
 	text-transform: uppercase;
 	font-weight: bold;
-}
-
-
-
-/* trying to make things glossy */
-.jumbotron {
-	background-color: transparent;
 }
