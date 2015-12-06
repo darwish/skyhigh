@@ -36,9 +36,13 @@ $search = search($q, $page);
 <a href="item.php?id={{id}}" class="result-item clearfix">
 	<div class="thumbnail"><img src="{{thumbnail}}"></div>
 	<div class="price">
-		<div class="discount-price">{{formatMoney discountPrice}}</div>
-		<div class="original-price-text">Original price: <span class="original-price">{{formatMoney originalPrice}}</span></div>
-		<div class="discount-percentage">{{discountPercentage}}%</div>
+		<div class="prices">
+			<div class="discount-price">{{formatMoney discountPrice}}</div>
+			<div class="original-price-text">Original price: <span class="original-price">{{formatMoney originalPrice}}</span></div>
+		</div>
+		<div class="discount-percentage">
+			<div class="discount-percentage-badge">{{discountPercentage}}%</div>
+		</div>
 	</div>
 	<div class="details">
 		<div class="title">{{title}}</div>
