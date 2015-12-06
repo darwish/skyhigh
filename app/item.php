@@ -35,11 +35,11 @@ $pageTitle = "Purchase Item";
 
 	<script type="text/plain" id="item-template">
 	<div class="purchase-item clearfix">
-		<div class="thumbnail item-thumbnail"><img src="{{thumbnail}}"></div>
+		<div class="thumbnail item-thumbnail"><img src="{{image}}"></div>
 
 		<div class="pay-buttons">
 			<div class="thumbnail">
-				<img src="https://chart.googleapis.com/chart?cht=qr&chs=250x250&chl=asdfasdf">
+				<img src="https://chart.googleapis.com/chart?cht=qr&chs=250x250&chl={{id}}:<?=me()->id?>">
 				<div class="caption">
 					<?php if ($purchase === null): ?>
 						<small>Show this QR code to the cashier to redeem your personalized coupon for {{positive_discount_percentage}}% off.</small>
@@ -82,7 +82,6 @@ $pageTitle = "Purchase Item";
 				<div class="discount-percentage-badge">{{discount_percentage}}%</div>
 			</div>
 		</div>
-
 
 		<div class="store-info">{{store}} - {{distance}}</div>
 		
