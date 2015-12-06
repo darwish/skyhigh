@@ -9,4 +9,8 @@ $user->password = password_hash(postvar("password"), PASSWORD_BCRYPT);
 R::store($user);
 
 $_SESSION['user_id'] = $user->id;
+
+if (postvar("pay")) {
+	$_SESSION['pay'] = 1;
+}
 ?>

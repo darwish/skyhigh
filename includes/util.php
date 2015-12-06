@@ -115,33 +115,13 @@ function search($query, $page = 1) {
 }
 
 function findItem($item_id) {
-	// return R::findOne("item", $item_id);
-	return fakeItems()[0];
+	return R::load("item", $item_id);
+}
+
+function findPurchase($item_id, $user_id) {
+	return R::findOne("purchase", "item_id = ? AND user_id = ?", [$item_id, $user_id]);
 }
 
 function fakeItems() {
-	return R::dispense([
-		[
-			'_type' =>  'item',
-			'id' => rand(1, 1000),
-			'thumbnail' => "//placebear.com/200/200",
-			'title' => "Nice Black Boots",
-			'description' => "Pretty decent stuff, you know?",
-			'store' => "Canadian Tire",
-			'distance' => "0.2mi",
-			'discount_price' => 49.9899,
-			'original_price' => 99.99,
-		],
-		[
-			'_type' =>  'item',
-			'id' => rand(1, 1000),
-			'thumbnail' => "//placebear.com/200/200",
-			'title' => "Nice Brown Boots",
-			'description' => "Not great, to be honest.",
-			'store' => "Walmart",
-			'distance' => "0.3mi",
-			'discount_price' => 29,
-			'original_price' => 39.95,
-		],
-	]);
+	return R::findAll("item");
 }
