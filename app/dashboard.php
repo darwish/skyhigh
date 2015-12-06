@@ -66,7 +66,6 @@ $(function() {
         var item = resultItemTemplate(result);
         $('#tbody').append(item);
     })
-    $('.nav-tabs > li > a').click();
 });
 </script>
 
