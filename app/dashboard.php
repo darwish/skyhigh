@@ -22,8 +22,9 @@ Dropzone.options.deadend = {
     <ul class="nav nav-tabs">
         <li class="active"><a data-toggle="tab" href="#inventory">Inventory</a></li>
         <li><a data-toggle="tab" href="#analytics">Analytics</a></li>
+        <li><a data-toggle="tab" href="#store-details">Store Details</a></li>
     </ul>
-    <div class="tab-content">
+    <div class="tab-content row">
         <div id="inventory" class="tab-pane fade in active">
             <table class="table table-condensed">
                 <thead>
@@ -45,6 +46,27 @@ Dropzone.options.deadend = {
             <h1>Gizmo Sale Campaign <i>August 2014</i></h1>
             <!-- this will get populated with a d3.js plot -->
         </div>
+         <div id="store-details" class="tab-pane fade ">
+            <form class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="address1">Street Address</label>
+                    <input id="address1" class="form-control" type="text" placeholder="123 Main Street">
+                </div>
+                <div class="form-group">
+                    <label for="zip">Zip Code</label>
+                    <input id="zip" class="form-control" type="text" placeholder="12345">
+                </div>
+
+                <button id="fetch-places" class="btn btn-primary" disabled>Save</button>
+            </div>
+            <div class="col-md-8">
+                <input name="location-lat" type="hidden">
+                <input name="location-lon" type="hidden">
+                <div id="map" style="height: 500px;"></div>
+            </div>
+            </form>
+        </div>
     </div>
 </div>
 
@@ -65,7 +87,95 @@ $(function() {
         result.discount_percentage = -calculateDiscount(result.discount_price, result.original_price);
         var item = resultItemTemplate(result);
         $('#tbody').append(item);
-    })
+    });
+
+    var addressField = $('#address1');
+    var zipField = $('#zip');
+    var placesRequest;
+
+    addressField.on('input', fetchPlaces);
+    zipField.on('input', fetchPlaces);
+
+    function fetchPlaces() {
+        if (placesRequest) {
+            placesRequest.abort();
+        }
+
+        var zip = zipField.val();
+        var street = addressField.val();
+
+        if (zip.length !== 5) {
+            return;
+        }
+        if (street.length == 0) {
+            return;
+        }
+
+        // placesRequest = $.get('http://dmartin.org:8006/merchantpoi/v1/merchantpoisvc.svc/merchantpoi?postalCode='+zip+'&streetAddr='+street+'&format=JSON');
+        // placesRequest.success(function(response, status, xhr) {
+
+            // the places api has data that is too sparse for our demo at this time
+            // we are assuming that the following data is returned for demo purposes
+            var data = {
+                MerchantPOIList: {
+                    Count: "21",
+                    MerchantPOIArray: {
+                        MerchantPOI: [
+                            {
+                                AggregateMerchantId: "5611",
+                                AggregateMerchantName: "NON-AGGREGATED MEN'S AND BOY'S CLOTHING AND ACCESSORIES STOR 5611",
+                                CleansedCityName: "SAN FRANCISCO",
+                                CleansedCountryCode: "USA",
+                                CleansedMerchantName: "AG ADRIANO GOLDSCHMIED",
+                                CleansedMerchantPostalCode: "94108-5808",
+                                CleansedMerchantStreetAddress: "20 OFARRELL ST",
+                                CleansedMerchantTelephoneNumber: "(415) 398-0546",
+                                CleansedStateProvidenceCode: "CA",
+                                CuisineCode: null,
+                                DMACode: "807",
+                                GeocodeQualityIndicator: "S8",
+                                HiddenGem: "N",
+                                InBusinessFlag: "Y",
+                                Industry: "AAM",
+                                KeyAggregateMerchantId: "5611",
+                                Latitude: "37.786865999999996",
+                                LocalFavorite: "N",
+                                Longitude: "-122.405552",
+                                MCCCode: "5611",
+                                MSACode: "7360",
+                                MerchantCityName: "SAN FRANCISCO",
+                                MerchantCountryCode: "USA",
+                                MerchantName: "AG SAN FRANCISCO",
+                                MerchantPostalCode: "94108",
+                                MerchantStateProvidenceCode: "CA",
+                                MerchantStreetAddress: "20 OFARRELL ST",
+                                NAICSCode: "424320",
+                                NewBusinessFlag: "N",
+                                ParentAggregateMerchantId: null,
+                                ParentAggregateMerchantName: "NON-AGGREGATED",
+                                PrimaryChannelOfDistribution: "B",
+                                SuperIndustry: "AAP"
+                            },
+                        ]
+                    }
+                }
+            };
+
+            if (data.MerchantPOIList.Count) {
+                var lat = data.MerchantPOIList.MerchantPOIArray.MerchantPOI[0].Latitude;
+                var lon = data.MerchantPOIList.MerchantPOIArray.MerchantPOI[0].Longitude;
+
+                L.mapbox.accessToken = 'pk.eyJ1IjoiY3JvY29kb3lsZSIsImEiOiJjaWhpZzRlY2MwbXFqdGNsenRqZmxqMHBrIn0.7yc8ndkeNHCD1TxhFzwe6w';
+                var map = L.mapbox.map('map', 'mapbox.dark').setView([lat, lon], 16);
+
+                var mark = L.marker([lat, lon]).addTo(map);
+                //mark.bindPopup('<a href="item.php?q="><img src="' + item.imgUrl + '" /> &nbsp; ' + item.item + '</a>').openPopup();
+            } else {
+                alert('something went wrong');
+            }
+
+        // });
+    }
 });
 </script>
 
