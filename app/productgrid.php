@@ -1,7 +1,7 @@
 <?php
 require __DIR__ . '/../includes/start.php';
 
-$products = R::getAll('SELECT image, title, original_price FROM item WHERE id <= 90');
+$products = R::getAll('SELECT image, title, original_price FROM item WHERE id <= 30');
 ?>
 
 <?php require __DIR__ . '/../includes/templates/header.php'; ?>
