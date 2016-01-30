@@ -123,7 +123,7 @@ function getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2) {
 }
 
 function deg2rad(deg) {
-	return deg * (Math.PI/180)
+	return deg * (Math.PI/180);
 }
 
 function km2mi(km) {
@@ -202,5 +202,5 @@ $(document).on('click', '.map-overlay', function() {
 $(document).on('click', '.store-info', function(ev){
 	$('#store-location-modal').modal('show');
 	$('#mapframe').prop("src", "singlemap.php?id=28");
-	return false
+	return false;
 });

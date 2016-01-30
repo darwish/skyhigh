@@ -102,7 +102,7 @@
 
 	<div class="modal fade" id="store-location-modal" tabindex="-1" role="dialog">
 		<div class="modal-dialog" role="document" style="position:fixed; left:10%; width:80%; height:90%">
-			<iframe style="width: 100%; height: 100%" id="mapframe" src="#"></iframe>
+			<iframe style="width: 100%; height: 100%" id="mapframe"></iframe>
 		</div>
 	</div>
 	</body>
