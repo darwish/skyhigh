@@ -1,5 +1,5 @@
 <div class="jumbotron search-bar">
-	<form action="search.php">
+	<form action="">
 		<div class="row">
 			<div class="form-group form-group-lg">
 				<div class="col-sm-10">

@@ -87,6 +87,14 @@ function getvar($name, $default = null) {
 	return isset($_GET[$name]) ? $_GET[$name] : $default;
 }
 
+function getenum($name, array $values, $default = null) {
+	if (!isset($_GET[$name]))
+		return $default;
+
+	$index = array_search($_GET[$name], $values);
+	return $index ? $values[$index] : $default;
+}
+
 function partial($name, array $__args = []) {
 	extract($__args);
 	require __DIR__ . "/templates/partials/$name.php";
@@ -97,8 +105,7 @@ function search($query, $category_id = null, $page = 1) {
 	$params = [];
 
 	if (!empty($query)) {
-		$where[] = "(title LIKE ? OR description LIKE ?)";
-		$params[] = "%$query%";
+		$where[] = "(MATCH(title) AGAINST(?))";
 		$params[] = "%$query%";
 	}
 
@@ -173,4 +180,12 @@ function findChildCategories($parent) {
 
 function fakeItems() {
 	return R::findAll("item");
+}
+
+function isRequestingJson() {
+	if (empty($_SERVER['HTTP_ACCEPT']))
+		return false;
+
+	$accepting = explode(',', $_SERVER['HTTP_ACCEPT']);
+	return $accepting[0] === 'application/json' || $accepting[0] === 'json';
 }

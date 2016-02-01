@@ -204,3 +204,21 @@ $(document).on('click', '.store-info', function(ev){
 	$('#mapframe').prop("src", "singlemap.php?id=28");
 	return false;
 });
+
+Array.prototype.toDictionary = function(keySelector) {
+	var dict = {};
+	for (var i = 0; i < this.length; i++) {
+		dict[keySelector(this[i])] = this[i];
+	}
+
+	return dict;
+};
+
+$.fn.setClass = function(className, value) {
+	if (value)
+		this.addClass(className);
+	else
+		this.removeClass(className);
+
+	return this;
+};
