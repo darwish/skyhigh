@@ -109,6 +109,10 @@
 	margin-right: 30px;
 }
 
+.next-page.invisible, .prev-page.invisible {
+	visibility: hidden;
+}
+
 html, body {
 	max-width: 100% !important;
 	overflow-x: hidden !important;

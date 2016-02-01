@@ -14,22 +14,28 @@ $pageSize = 30;
 $sort = getenum('sort', ['name', 'price'], 'name');
 $dir = getenum('dir', ['asc', 'desc'], 'asc');
 
-if ($page == 1 && $sort == 'name' && $dir == 'asc') {
+$products = [];
+$capabilities = [];
+
+if (!isRequestingJson()) {
 	$products = R::getAll("
-	(SELECT id, title as name, image, original_price as price FROM item  WHERE MATCH(title) AGAINST(:query) ORDER BY title LIMIT :doublePageSize)
-	UNION (SELECT id, title as name, image, original_price as price FROM item  WHERE MATCH(title) AGAINST(:query) ORDER BY title DESC LIMIT :pageSize)
-	UNION (SELECT id, title as name, image, original_price as price FROM item  WHERE MATCH(title) AGAINST(:query) ORDER BY original_price LIMIT :pageSize)
-	UNION (SELECT id, title as name, image, original_price as price FROM item  WHERE MATCH(title) AGAINST(:query) ORDER BY original_price DESC LIMIT :pageSize)",
+(SELECT id, title as name, image, original_price as price FROM item  WHERE MATCH(title) AGAINST(:query) ORDER BY title LIMIT :doublePageSize)
+UNION (SELECT id, title as name, image, original_price as price FROM item  WHERE MATCH(title) AGAINST(:query) ORDER BY title DESC LIMIT :pageSize)
+UNION (SELECT id, title as name, image, original_price as price FROM item  WHERE MATCH(title) AGAINST(:query) ORDER BY original_price LIMIT :pageSize)
+UNION (SELECT id, title as name, image, original_price as price FROM item  WHERE MATCH(title) AGAINST(:query) ORDER BY original_price DESC LIMIT :pageSize)",
 			[':query' => $q, ':page' => ($page - 1) * $pageSize, ':pageSize' => $pageSize, ':doublePageSize' => 2 * $pageSize]);
 
 	$totalProducts = (int)R::getCell('SELECT COUNT(*) FROM item WHERE MATCH(title) AGAINST (:query)', [':query' => $q]);
-	$capabilities = ['sort' => ['name' => true, 'price' => true], 'pages' => ['next' => true ]];
-} else {
-	$products = R::getAll("
+	$capabilities = ['sort' => ['name' => true, 'price' => true], 'pages' => ['next' => true]];
+}
+
+if ($page > 1 || isRequestingJson()) {
+	$newProducts = R::getAll("
 	(SELECT id, title as name, image, original_price as price FROM item  WHERE MATCH(title) AGAINST(:query) ORDER BY :sort :dir LIMIT :start,:pageSize)",
 		[':query' => $q, 'start' => ($page - 1) * $pageSize, ':pageSize' => $pageSize, ':sort' => $sort, ':dir' => $dir]);
 
-	$capabilities = [];
+	$ids = array_fill_keys(array_map(function($x) { return $x['id']; }, $products), true);
+	$products = array_merge($products, array_filter($newProducts, function($x) use($ids) { return !array_key_exists($x['id'], $ids); }));
 }
 
 
@@ -58,18 +64,18 @@ if ($page > 1) {
 
 <div class="sortby">
 	<div>Sort by:</div>
-	<div><a href=# class="sort-name asc">Name </a></div>
-	<div><a href=# class="sort-price">Price </a></div>
+	<div><a href=# class="sort-name <?= $sort == 'name' ? $dir : '' ?>">Name </a></div>
+	<div><a href=# class="sort-price <?= $sort == 'price' ? $dir : '' ?>">Price </a></div>
 </div>
-<a class="next-page <?= $nextPage ? '' : 'hidden' ?>" href="<?= $nextUrl ?>">Next Page</a>
-<a class="prev-page <?= $prevPage ? '' : 'hidden' ?>" href="<?= $prevUrl ?>">Previous Page</a>
+<a class="next-page <?= $nextPage ? '' : 'invisible' ?>" href="<?= $nextUrl ?>">Next Page</a>
+<a class="prev-page <?= $prevPage ? '' : 'invisible' ?>" href="<?= $prevUrl ?>">Previous Page</a>
 
 
 <div class="grid-wrapper"><ul class="product-grid"></ul></div>
 
 <div class="clearfix">
-<a class="next-page <?= $nextPage ? '' : 'hidden' ?>" href="<?= $nextUrl ?>">Next Page</a>
-<a class="prev-page <?= $prevPage ? '' : 'hidden' ?>" href="<?= $prevUrl ?>">Previous Page</a>
+<a class="next-page <?= $nextPage ? '' : 'invisible' ?>" href="<?= $nextUrl ?>">Next Page</a>
+<a class="prev-page <?= $prevPage ? '' : 'invisible' ?>" href="<?= $prevUrl ?>">Previous Page</a>
 </div>
 
 <script type="text/x-handlebars" id="product-template">
@@ -224,20 +230,48 @@ $(function() {
 			var link = this;
 			link.innerText = "Next Page..."
 			$.getJSON(this.href, function(response) {
-				products = products.concat(response.products.filter(function(x) { return !productsByID[x.id]; }));
-				$.extend(true, caps, response.caps);
+				mergeNewProducts(response);
 				link.innerText = "Next Page";
 				showPage(page + 1);
 			});
 		} else {
 			showPage(page + 1);
 			delete caps.pages.next;
+
+			if (page * pageSize < totalProducts) {
+				// prefetch next page
+				$.getJSON(this.href, function(response) {
+					preloadImages(mergeNewProducts(response));
+					caps.pages.next = true;
+				});
+			}
 		}
 
 		return false;
 	});
 
+	$('.prev-page').click(function() {
+		showPage(page - 1);
+		caps.pages.next = true;
+
+		return false;
+	});
+
+	function mergeNewProducts(response) {
+		var newProducts = response.products.filter(function(x) { return !productsByID[x.id]; });
+		products = products.concat(newProducts);
+		$.extend(true, caps, response.caps);
+
+		for (var i = 0; i < newProducts.length; i++)
+			productsByID[newProducts[i].id] = newProducts[i];
+
+		return newProducts;
+	}
+
 	function showPage(pageNum) {
+		if (page == pageNum)
+			return;
+
 		var sorter = sorters[currentSort];
 		var shownProducts = products.slice();
 		var m = ascending ? 1 : -1;
@@ -245,6 +279,7 @@ $(function() {
 			return m * sorter(a[currentSort], b[currentSort]);
 		});
 
+		var dir = pageNum > page ? 1 : -1;
 		page = pageNum;
 		var start = (page - 1) * pageSize;
 		shownProducts = shownProducts.slice(start, start + pageSize);
@@ -252,8 +287,10 @@ $(function() {
 		var grid = $('.product-grid');
 		grid.addClass('transitions');
 		var r = grid[0].getBoundingClientRect();
-		grid.css('transform', 'translate(' + (-r.right) + 'px, 0px');
-		var x = $(window).width() - r.left;
+		var w = $(window).width();
+		var x = dir > 0 ? -r.right : w - r.left;
+		grid.css('transform', 'translate(' + x + 'px, 0px');
+		x = dir > 0 ? w - r.left : -r.right;
 		var y = -r.height - parseInt(grid.css('margin-bottom'));
 		var newGrid = $('<ul class="product-grid transitions">').css({
 			transform: 'translate(' + x + 'px, ' + y + 'px)'
@@ -270,13 +307,16 @@ $(function() {
 		});
 
 		updatePageLinks();
+
+		if ($('.sortby')[0].getBoundingClientRect().top < 0)
+			$('.sortby').velocity('scroll', { offset: -60 });
 	}
 
 	function updatePageLinks() {
 		$('.next-page')[0].href = '?' + $.param({ q: query, sort: currentSort, dir: ascending ? 'asc' : 'desc', page: page + 1 });
 		$('.prev-page')[0].href = '?' + $.param({ q: query, sort: currentSort, dir: ascending ? 'asc' : 'desc', page: page - 1 });
-		$('.next-page').setClass('hidden', page * pageSize >= totalProducts);
-		$('.prev-page').setClass('hidden', page <= 1);
+		$('.next-page').setClass('invisible', page * pageSize >= totalProducts);
+		$('.prev-page').setClass('invisible', page <= 1);
 	}
 
 	$(window).load(function() {
