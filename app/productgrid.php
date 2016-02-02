@@ -31,8 +31,8 @@ UNION (SELECT id, title as name, image, original_price as price FROM item  WHERE
 
 if ($page > 1 || isRequestingJson()) {
 	$newProducts = R::getAll("
-	(SELECT id, title as name, image, original_price as price FROM item  WHERE MATCH(title) AGAINST(:query) ORDER BY :sort :dir LIMIT :start,:pageSize)",
-		[':query' => $q, 'start' => ($page - 1) * $pageSize, ':pageSize' => $pageSize, ':sort' => $sort, ':dir' => $dir]);
+	(SELECT id, title as name, image, original_price as price FROM item  WHERE MATCH(title) AGAINST(:query) ORDER BY $sort $dir LIMIT :start,:pageSize)",
+		[':query' => $q, ':start' => ($page - 1) * $pageSize, ':pageSize' => $pageSize]);
 
 	$ids = array_fill_keys(array_map(function($x) { return $x['id']; }, $products), true);
 	$products = array_merge($products, array_filter($newProducts, function($x) use($ids) { return !array_key_exists($x['id'], $ids); }));
@@ -223,6 +223,8 @@ $(function() {
 			grid.css('max-height', '');
 			delete sort.positions;
 		});
+
+		prefetchNextPage();
 	}
 
 	$('.next-page').click(function() {
@@ -232,18 +234,14 @@ $(function() {
 			$.getJSON(this.href, function(response) {
 				mergeNewProducts(response);
 				link.innerText = "Next Page";
-				showPage(page + 1);
+				queueShowPage(page + 1);
 			});
 		} else {
-			showPage(page + 1);
+			queueShowPage(page + 1);
 			delete caps.pages.next;
 
 			if (page * pageSize < totalProducts) {
-				// prefetch next page
-				$.getJSON(this.href, function(response) {
-					preloadImages(mergeNewProducts(response));
-					caps.pages.next = true;
-				});
+				prefetchNextPage();
 			}
 		}
 
@@ -251,11 +249,18 @@ $(function() {
 	});
 
 	$('.prev-page').click(function() {
-		showPage(page - 1);
+		queueShowPage(page - 1);
 		caps.pages.next = true;
 
 		return false;
 	});
+
+	function prefetchNextPage(){
+		$.getJSON($('.next-page')[0].href, function(response) {
+			preloadImages(mergeNewProducts(response));
+			caps.pages.next = true;
+		});
+	}
 
 	function mergeNewProducts(response) {
 		var newProducts = response.products.filter(function(x) { return !productsByID[x.id]; });
@@ -268,10 +273,20 @@ $(function() {
 		return newProducts;
 	}
 
-	function showPage(pageNum) {
-		if (page == pageNum)
-			return;
+	function queueShowPage(pageNum) {
+		$(window).queue('showPage', function() { showPage(pageNum); });
+		if (!showPage.inProgress)
+			$(window).dequeue('showPage');
+	}
 
+	function showPage(pageNum) {
+		if (page == pageNum) {
+			showPage.inProgress = false;
+			$(window).dequeue('showPage');
+			return;
+		}
+
+		showPage.inProgress = true;
 		var sorter = sorters[currentSort];
 		var shownProducts = products.slice();
 		var m = ascending ? 1 : -1;
@@ -304,6 +319,10 @@ $(function() {
 			newGrid.removeClass('transitions').css('transform', '');
 			grid.remove();
 			$('.grid-wrapper').css('max-height', '');
+			setTimeout(function() {
+				showPage.inProgress = false;
+				$(window).dequeue('showPage');
+			}, 1);
 		});
 
 		updatePageLinks();
