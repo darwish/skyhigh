@@ -103,6 +103,12 @@ Handlebars.registerHelper('substr', function(string, start, length) {
 	return string.substr(start, length);
 });
 
+Handlebars.registerHelper('escapeQuotes', function(string) {
+	return string.replace(/\\/g, '\\\\').
+		replace(/'/g, '\\\'').
+		replace(/"/g, '\\"');
+});
+
 function calculateDiscount(discountPrice, originalPrice) {
 	return Math.round(100 * (originalPrice - discountPrice) / originalPrice);
 }

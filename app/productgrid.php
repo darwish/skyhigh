@@ -87,7 +87,7 @@ if ($page > 1) {
 
 <script type="text/x-handlebars" id="product-template">
 	<li data-id="{{id}}" class="transitions">
-		<div class="image" style="background-image: url({{image}})"></div>
+		<div class="image" style="background-image: url('{{escapeQuotes image}}')"></div>
 		<div class="name" title="{{name}}">{{name}}</div>
 		<div class="price">${{price}}</div>
 	</li>
