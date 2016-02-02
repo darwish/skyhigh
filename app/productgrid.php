@@ -11,18 +11,23 @@ if ($category_id) {
 
 $page = (int)getvar("page", 1);
 $pageSize = 30;
-$sort = getenum('sort', ['name', 'price'], 'name');
+$sort = getenum('sort', ['relevance', 'name', 'price'], 'relevance');
 $dir = getenum('dir', ['asc', 'desc'], 'asc');
+if ($sort == 'relevance')
+	$dir = 'desc';
 
 $products = [];
 $capabilities = [];
 
+$select = "SELECT id, title as name, image, original_price as price, MATCH(title) AGAINST(:query) as relevance FROM item WHERE MATCH(title) AGAINST(:query)";
+
 if (!isRequestingJson()) {
 	$products = R::getAll("
-(SELECT id, title as name, image, original_price as price FROM item  WHERE MATCH(title) AGAINST(:query) ORDER BY title LIMIT :doublePageSize)
-UNION (SELECT id, title as name, image, original_price as price FROM item  WHERE MATCH(title) AGAINST(:query) ORDER BY title DESC LIMIT :pageSize)
-UNION (SELECT id, title as name, image, original_price as price FROM item  WHERE MATCH(title) AGAINST(:query) ORDER BY original_price LIMIT :pageSize)
-UNION (SELECT id, title as name, image, original_price as price FROM item  WHERE MATCH(title) AGAINST(:query) ORDER BY original_price DESC LIMIT :pageSize)",
+($select ORDER BY relevance DESC LIMIT :doublePageSize)
+UNION ($select ORDER BY title LIMIT :pageSize)
+UNION ($select ORDER BY title DESC LIMIT :pageSize)
+UNION ($select ORDER BY original_price LIMIT :pageSize)
+UNION ($select ORDER BY original_price DESC LIMIT :pageSize)",
 			[':query' => $q, ':page' => ($page - 1) * $pageSize, ':pageSize' => $pageSize, ':doublePageSize' => 2 * $pageSize]);
 
 	$totalProducts = (int)R::getCell('SELECT COUNT(*) FROM item WHERE MATCH(title) AGAINST (:query)', [':query' => $q]);
@@ -31,7 +36,7 @@ UNION (SELECT id, title as name, image, original_price as price FROM item  WHERE
 
 if ($page > 1 || isRequestingJson()) {
 	$newProducts = R::getAll("
-	(SELECT id, title as name, image, original_price as price FROM item  WHERE MATCH(title) AGAINST(:query) ORDER BY $sort $dir LIMIT :start,:pageSize)",
+	($select ORDER BY $sort $dir LIMIT :start,:pageSize)",
 		[':query' => $q, ':start' => ($page - 1) * $pageSize, ':pageSize' => $pageSize]);
 
 	$ids = array_fill_keys(array_map(function($x) { return $x['id']; }, $products), true);
@@ -62,8 +67,10 @@ if ($page > 1) {
 <h1>Search Results</h1>
 <?php partial("search-bar", ['q' => $q]); ?>
 
+<div class="result-count"><?= $totalProducts ?> Results</div>
 <div class="sortby">
 	<div>Sort by:</div>
+	<div><a href=# class="sort-relevance <?= $sort == 'relevance' ? 'selected' : '' ?>">Relevance </a></div>
 	<div><a href=# class="sort-name <?= $sort == 'name' ? $dir : '' ?>">Name </a></div>
 	<div><a href=# class="sort-price <?= $sort == 'price' ? $dir : '' ?>">Price </a></div>
 </div>
@@ -81,7 +88,7 @@ if ($page > 1) {
 <script type="text/x-handlebars" id="product-template">
 	<li data-id="{{id}}" class="transitions">
 		<div class="image" style="background-image: url({{image}})"></div>
-		<div class="name">{{name}}</div>
+		<div class="name" title="{{name}}">{{name}}</div>
 		<div class="price">${{price}}</div>
 	</li>
 </script>
@@ -92,22 +99,33 @@ $(function() {
 	var productsByID = products.toDictionary(function(x) { return x.id; });
 	var totalProducts = <?= json_encode($totalProducts) ?>;
 	var caps = <?= json_encode($capabilities); ?>;
-	var currentSort = "name";
-	var ascending = true;
+	var currentSort = <?= json_encode($sort); ?>;
+	var ascending = <?= $dir == 'desc' ? 'false' : 'true'; ?>;
 	var pageSize = <?= json_encode($pageSize) ?>;
 	var page = <?= json_encode($page) ?>;
 	var query = <?= json_encode($q) ?>;
-	var sorters = { 
+	var sorters = {
+		relevance: function(a, b) { return (+a) - (+b); },
 		name: function(a, b) { return a.localeCompare(b); },
 		price: function(a, b) { return (+a) - (+b); }
 	};
 
-	var shownProducts = products.slice(); // copy
-	shownProducts.sort(function(a, b) { return a.name.localeCompare(b.name); });
-	shownProducts.length = pageSize;
+	var shownProducts = sortProducts();
 	
 	var productTemplate = Handlebars.compile($('#product-template').html());
 	$('.product-grid').append(shownProducts.map(function(x) { return $(productTemplate(x)); }));
+
+	$('.sort-relevance').click(function() {
+		if (currentSort == 'relevance')
+			return false;
+
+		ascending = false;	// always sort by descending relevance
+		currentSort = 'relevance';
+		sort();
+		$('.sortby>div>a').removeClass('asc desc selected');
+		$(this).addClass('selected');
+		return false;
+	});
 
 	$('.sort-name').click(function() {
 		changeSort('name');
@@ -128,19 +146,24 @@ $(function() {
 		currentSort = field;
 		sort();
 
-		$('.sortby>div>a').removeClass('asc desc');
+		$('.sortby>div>a').removeClass('asc desc selected');
 		$('.sortby').find('.sort-' + field).addClass(ascending ? 'asc' : 'desc');
 	}
 
-	function sort() {
-		page = 1;	// sorting puts us back on page 1
-		updatePageLinks();
-
+	function sortProducts() {
 		var sorter = sorters[currentSort];
 		var shownProducts = products.slice();
 		var m = ascending ? 1 : -1;
 		shownProducts.sort(function(a, b) { return m * sorter(a[currentSort], b[currentSort]); });
 		shownProducts.length = Math.min(shownProducts.length, pageSize);
+
+		return shownProducts;
+	}
+
+	function sort() {
+		page = 1;	// sorting puts us back on page 1
+		updatePageLinks();
+		var shownProducts = sortProducts();
 
 		var grid = $('.product-grid');
 		sort.elements = grid.children();
@@ -177,12 +200,14 @@ $(function() {
 			newIDs[product.id] = true;
 			
 			if (elementsByID[product.id]) {
+				// The element has moved. Do a slide transition.
 				var el = elementsByID[product.id];
 				var x = sort.positions[i].x - el.data('pos').x;
 				var y = sort.positions[i].y - el.data('pos').y;
 				el.css('transform', 'translate(' + x + 'px, ' + y + 'px)');
 				sort.newElements.push(el);
 			} else {
+				// The element is new. Do a fade in.
 				var el = $(productTemplate(product));
 				el.removeClass('transitions').css('opacity', 0);
 				grid.append(el);
@@ -199,6 +224,7 @@ $(function() {
 		}
 		
 		for (var i = 0; i < sort.elements.length; i++) {
+			// These elements are gone from the page. Fade them out.
 			if (!newIDs[$(sort.elements[i]).data('id')])
 				sort.elements.eq(i).css('opacity', 0);
 		}

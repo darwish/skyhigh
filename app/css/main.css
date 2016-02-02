@@ -39,11 +39,11 @@
 }
 
 .product-grid li.transitions {
-	-webkit-transition: transform 0.5s, opacity 0.25s;
-	-moz-transition: transform 0.5s, opacity 0.25s;
-	-ms-transition: transform 0.5s, opacity 0.25s;
-	-o-transition: transform 0.5s, opacity 0.25s;
-	transition: transform 0.5s, opacity 0.25s;
+	-webkit-transition: transform 0.5s, opacity 0.25s linear;
+	-moz-transition: transform 0.5s, opacity 0.25s linear;
+	-ms-transition: transform 0.5s, opacity 0.25s linear;
+	-o-transition: transform 0.5s, opacity 0.25s linear;
+	transition: transform 0.5s, opacity 0.25s linear;
 }
 
 .product-grid li .image {
@@ -70,7 +70,7 @@
     margin: 0 15px;
 }
 
-.sortby .asc, .sortby .desc {
+.sortby .asc, .sortby .desc, .sortby .selected {
     font-weight: bold;
 }
 
@@ -98,6 +98,10 @@
     content: "";
     display: inline-block;
     vertical-align: middle;
+}
+
+.result-count {
+	margin-left: 15px;
 }
 
 .next-page {
