@@ -65,7 +65,7 @@ if ($page > 1) {
 <?php require __DIR__ . '/../includes/templates/header.php'; ?>
 
 <h1>Search Results</h1>
-<?php partial("search-bar", ['q' => $q]); ?>
+<?php partial("search-bar", ['q' => $q, 'url' => '']); ?>
 
 <div class="result-count"><?= $totalProducts ?> Results</div>
 <div class="sortby">
